@@ -1,0 +1,127 @@
+{% extends ':home:base.html.twig' %}
+
+{% block body %}
+    <!-- .page-title-container start -->
+    <section class="page-title-container">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+
+            <!-- .page-title start -->
+            <div class="page-title grid_12">
+                <div class="title">
+                    <h1>{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</h1>
+                </div>
+            </div><!-- .page-title end -->
+        </div><!-- .container_12 end -->
+    </section><!-- .page-title-container end -->
+
+
+    <!-- #content-wrapper start -->
+    <section id="content-wrapper">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+            <!-- .grid_6 start -->
+            <div class="grid_6">
+                {% for flash_message in app.session.flashbag.get('error') %}
+                    <section class="error-box">
+                        <p>{{ flash_message }}</p>
+                    </section>
+                {% endfor %}
+                <div style="clear: both"></div>
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'wpcf7'}}) }}
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.email'|trans({}, 'FOSUserBundle') }}:</label>
+                        {{ form_widget(form.email, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.email) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.email) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.username'|trans({}, 'FOSUserBundle') }}:</label>
+                        {{ form_widget(form.username, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.username) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.username) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label> {{ 'home.registration.full_name'|trans }}:</label>
+                        {{ form_widget(form.fullName, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.fullName) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.fullName) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label> {{ 'home.registration.country'|trans }}:</label>
+                        {{ form_widget(form.country, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.country) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.country) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label> {{ 'home.registration.city'|trans }}:</label>
+                        {{ form_widget(form.city, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.city) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.city) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label> {{ 'home.registration.address'|trans }}:</label>
+                        {{ form_widget(form.address, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.address) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.address) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'home.registration.skype'|trans }}:</label>
+                        {{ form_widget(form.skype, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.skype) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.skype) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'home.registration.phone'|trans }}:</label>
+                        {{ form_widget(form.phone, {'attr': {'class': 'wpcf7-text'}}) }}
+                        {% if form_errors(form.phone) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.phone) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.password'|trans({}, 'FOSUserBundle') }}:</label>
+                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'wpcf7-text' }}) }}
+                        {% if form_errors(form.plainPassword.first) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.plainPassword.first) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.password_confirmation'|trans({}, 'FOSUserBundle') }}:</label>
+                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'wpcf7-text' }}) }}
+                    </fieldset>
+                    <input type="checkbox" required="required">
+                    <div style="margin-top: -23px; margin-left: 24px">
+                        <a href="{{ path('home_terms_and_conditions') }}">{{ 'home.registration.terms'|trans }}</a>
+                    </div>
+                    <fieldset>
+                        <script type="text/javascript">
+                            var onloadCallback = function() {
+                                grecaptcha.render('captcha', {
+                                    'sitekey' : '{{ site_key }}',
+                                    'hl' : 'en',
+                                    'theme' : 'light'
+                                });
+                            };
+                        </script>
+                        <div id="captcha"></div>
+                        <script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit"
+                                async defer>
+                        </script>
+                    </fieldset>
+                    <fieldset></fieldset>
+                    <input type="submit" class="wpcf7-submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+{% endblock body %}

@@ -1,0 +1,66 @@
+{% extends ':home:base.html.twig' %}
+
+{% block body %}
+    <!-- .page-title-container start -->
+    <section class="page-title-container">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+
+            <!-- .page-title start -->
+            <div class="page-title grid_12">
+                <div class="title">
+                    <h1>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h1>
+                </div>
+            </div><!-- .page-title end -->
+        </div><!-- .container_12 end -->
+    </section><!-- .page-title-container end -->
+
+
+
+    <!-- #content-wrapper start -->
+    <section id="content-wrapper">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+            <!-- .grid_6 start -->
+            <div class="grid_6">
+                {% if error %}
+                    <section class="error-box">
+                        <p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                    </section>
+                {% endif %}
+                <div style="clear: both"></div>
+                <!-- wpcf7 start -->
+                <form class="wpcf7" action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.username'|trans({}, 'FOSUserBundle') }}:</label>
+                        <input type="text" class="wpcf7-text" id="contact-name" name="_username" value="{{ last_username }}" />
+                    </fieldset>
+
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.password'|trans({}, 'FOSUserBundle') }}:</label>
+                        <input type="password" class="wpcf7-text" id="contact-lastname" name="_password"/>
+                    </fieldset>
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+                        <div style="margin-top: -21px; margin-left: 24px">
+                            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                        </div>
+                        <div style="position: absolute; margin-top: -2px; margin-left: 143px">
+                            <a href="{{ path('fos_user_resetting_request') }}">{{ 'home.login.forgot_password'|trans }}</a>
+                        </div>
+                    <fieldset>
+
+                    </fieldset>
+                    <input type="submit" class="wpcf7-submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                </form><!-- wpcf7 end -->
+            </div><!-- .grid_6 end -->
+
+            <!-- .grid_6 start -->
+            <article class="grid_6">
+
+            </article>
+        </div>
+    </section>
+{% endblock body %}

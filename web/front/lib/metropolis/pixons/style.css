@@ -1,0 +1,219 @@
+@font-face {
+	font-family: 'pixons';
+	src:url('fonts/pixons.eot');
+	src:url('fonts/pixons.eot?#iefix') format('embedded-opentype'),
+		url('fonts/pixons.woff') format('woff'),
+		url('fonts/pixons.ttf') format('truetype'),
+		url('fonts/pixons.svg#pixons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'pixons';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="pixons-"]:before {
+*/
+.pixons-amazon:before, .pixons-android:before, .pixons-aol:before, .pixons-behance:before, .pixons-bing:before, .pixons-blogger:before, .pixons-buzz:before, .pixons-delicious:before, .pixons-deviantart:before, .pixons-digg:before, .pixons-dribbble:before, .pixons-dropbox:before, .pixons-drupal:before, .pixons-ember:before, .pixons-envato:before, .pixons-evernote:before, .pixons-facebook-1:before, .pixons-facebook-2:before, .pixons-feedburner:before, .pixons-forrst:before, .pixons-foursquare:before, .pixons-github:before, .pixons-google_plus:before, .pixons-grooveshark:before, .pixons-html5:before, .pixons-instagram:before, .pixons-lastfm:before, .pixons-linkedin:before, .pixons-metacafe:before, .pixons-mixx:before, .pixons-myspace:before, .pixons-newsvine:before, .pixons-paypal:before, .pixons-picasa:before, .pixons-pinterest:before, .pixons-plixi:before, .pixons-plurk:before, .pixons-posterous:before, .pixons-reddit:before, .pixons-rss:before, .pixons-sharethis:before, .pixons-skype:before, .pixons-stumbleupon:before, .pixons-technorati:before, .pixons-tumblr:before, .pixons-twitter-1:before, .pixons-twitter-2:before, .pixons-vimeo:before, .pixons-wordpress:before, .pixons-xing:before, .pixons-yahoo:before, .pixons-yelp:before, .pixons-youtube:before, .pixons-zerply:before, .pixons-zootool:before, .pixons-github-2:before, .pixons-soundcloud:before, .pixons-flickr:before, .pixons-apple:before, .pixons-tux:before {
+	font-family: 'pixons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.pixons-amazon:before {
+	content: "\21";
+}
+.pixons-android:before {
+	content: "\22";
+}
+.pixons-aol:before {
+	content: "\23";
+}
+.pixons-behance:before {
+	content: "\24";
+}
+.pixons-bing:before {
+	content: "\25";
+}
+.pixons-blogger:before {
+	content: "\26";
+}
+.pixons-buzz:before {
+	content: "\27";
+}
+.pixons-delicious:before {
+	content: "\28";
+}
+.pixons-deviantart:before {
+	content: "\29";
+}
+.pixons-digg:before {
+	content: "\2a";
+}
+.pixons-dribbble:before {
+	content: "\2b";
+}
+.pixons-dropbox:before {
+	content: "\2c";
+}
+.pixons-drupal:before {
+	content: "\2d";
+}
+.pixons-ember:before {
+	content: "\2e";
+}
+.pixons-envato:before {
+	content: "\2f";
+}
+.pixons-evernote:before {
+	content: "\30";
+}
+.pixons-facebook-1:before {
+	content: "\31";
+}
+.pixons-facebook-2:before {
+	content: "\32";
+}
+.pixons-feedburner:before {
+	content: "\33";
+}
+.pixons-forrst:before {
+	content: "\34";
+}
+.pixons-foursquare:before {
+	content: "\35";
+}
+.pixons-github:before {
+	content: "\36";
+}
+.pixons-google_plus:before {
+	content: "\37";
+}
+.pixons-grooveshark:before {
+	content: "\38";
+}
+.pixons-html5:before {
+	content: "\39";
+}
+.pixons-instagram:before {
+	content: "\3a";
+}
+.pixons-lastfm:before {
+	content: "\3b";
+}
+.pixons-linkedin:before {
+	content: "\3c";
+}
+.pixons-metacafe:before {
+	content: "\3d";
+}
+.pixons-mixx:before {
+	content: "\3e";
+}
+.pixons-myspace:before {
+	content: "\3f";
+}
+.pixons-newsvine:before {
+	content: "\40";
+}
+.pixons-paypal:before {
+	content: "\41";
+}
+.pixons-picasa:before {
+	content: "\42";
+}
+.pixons-pinterest:before {
+	content: "\43";
+}
+.pixons-plixi:before {
+	content: "\44";
+}
+.pixons-plurk:before {
+	content: "\45";
+}
+.pixons-posterous:before {
+	content: "\46";
+}
+.pixons-reddit:before {
+	content: "\47";
+}
+.pixons-rss:before {
+	content: "\48";
+}
+.pixons-sharethis:before {
+	content: "\49";
+}
+.pixons-skype:before {
+	content: "\4a";
+}
+.pixons-stumbleupon:before {
+	content: "\4b";
+}
+.pixons-technorati:before {
+	content: "\4c";
+}
+.pixons-tumblr:before {
+	content: "\4d";
+}
+.pixons-twitter-1:before {
+	content: "\4e";
+}
+.pixons-twitter-2:before {
+	content: "\4f";
+}
+.pixons-vimeo:before {
+	content: "\50";
+}
+.pixons-wordpress:before {
+	content: "\51";
+}
+.pixons-xing:before {
+	content: "\52";
+}
+.pixons-yahoo:before {
+	content: "\53";
+}
+.pixons-yelp:before {
+	content: "\54";
+}
+.pixons-youtube:before {
+	content: "\55";
+}
+.pixons-zerply:before {
+	content: "\56";
+}
+.pixons-zootool:before {
+	content: "\57";
+}
+.pixons-github-2:before {
+	content: "\58";
+}
+.pixons-soundcloud:before {
+	content: "\59";
+}
+.pixons-flickr:before {
+	content: "\5a";
+}
+.pixons-apple:before {
+	content: "\5b";
+}
+.pixons-tux:before {
+	content: "\5c";
+}

@@ -1,0 +1,17 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        <li>
+            <a href="{{ path('admin_all_news') }}" title="" class="{% if app.request.attributes.get('_route') == 'admin_all_news'%}this{% endif %}">
+                <span class="icos-notebook"></span>
+                Все новости
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('admin_news') }}" title="" class="{% if app.request.attributes.get('_route') == 'admin_news'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Создать новость
+            </a>
+        </li>
+    </ul>
+</div>

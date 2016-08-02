@@ -1,0 +1,24 @@
+{% extends ':home:base.html.twig' %}
+
+
+{% block body %}
+
+    <!-- .page-title-container start -->
+    <section class="page-title-container">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+
+            <!-- .page-title start -->
+            <div class="page-title grid_12">
+                <div class="title">
+                    <h1>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</h1>
+                    {% if targetUrl %}
+                        <h2><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></h2>
+                    {% endif %}
+                </div>
+            </div><!-- .page-title end -->
+        </div><!-- .container_12 end -->
+    </section><!-- .page-title-container end -->
+
+{% endblock body %}

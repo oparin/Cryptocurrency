@@ -1,0 +1,57 @@
+{% extends "::office.html.twig"  %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.layout.support'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+        {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'support.all_tickets'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-sm-12 mail_list_column">
+                        {% for ticket in tickets %}
+                            <div class="mail_list">
+                                <div class="left">
+                                    {#<i class="fa fa-circle"></i> <i class="fa fa-edit"></i>#}
+                                    <i>
+                                        {% if ticket.status == 0 %}
+                                            <span style="color: green">{{ 'support.opened'|trans }}</span>
+                                        {% elseif ticket.status == 1 %}
+                                            <span style="color: blue">{{ 'support.answered'|trans }}</span>
+                                        {% elseif ticket.status == 2 %}
+                                            <span style="color: red">{{ 'support.closed'|trans }}</span>
+                                        {% endif %}
+                                    </i>
+                                </div>
+                                <a href="{{ path('show_ticket', {'id': ticket.id}) }}">
+                                    <div class="right">
+                                        <h3>{{ ticket.subject }} <small>{{ ticket.date|date('d-m-Y') }}</small></h3>
+                                        <p>{{ ticket.text }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

@@ -1,0 +1,456 @@
+{% extends '::office.html.twig' %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.layout.affiliate_program'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    {#<div class="row">#}
+        {#<div class="col-md-12 col-sm-12 col-xs-12">#}
+            {#<div class="x_panel">#}
+                {#<div class="x_title">#}
+                    {#<h2>#}
+                        {#{% if app.request.attributes.get('userId') %}#}
+                            {#{{ 'office.affiliate_program.binary.binary'|trans }} {{ user.username }}#}
+                        {#{% else %}#}
+                            {#{{ 'office.affiliate_program.binary.my_binary'|trans }}#}
+                        {#{% endif %}#}
+                    {#</h2>#}
+                    {#<div class="clearfix"></div>#}
+                {#</div>#}
+                {#<div class="x_content">#}
+                    {#<div class="widget-body" style="background-color: grey; border-radius: 4px; padding-bottom: 10px">#}
+                        {#<div style="width: 100%">#}
+                            {#<div style="width: 50%; padding-top: 10px; text-align: center">#}
+                                {#{% if countRef >= 2 %}#}
+                                    {#<div style="float: left; margin-left: 30px">#}
+                                        {#<a href="{{ path('marketing_change_course', {'course': 0}) }}">#}
+                                            {#<div>#}
+                                                {#{% if not app.user.binary.course %}#}
+                                                    {#<img src="{{ asset('img/left_arrow_active.png') }}" width="56">#}
+                                                {#{% else %}#}
+                                                    {#<img src="{{ asset('img/left_arrow.png') }}">#}
+                                                {#{% endif %}#}
+                                            {#</div>#}
+                                            {#<div>#}
+                                                {#{% if not app.user.binary.course %}#}
+                                                    {#<b>{{ 'office.affiliate_program.binary.on_left'|trans }}</b>#}
+                                                {#{% endif %}#}
+                                            {#</div>#}
+                                        {#</a>#}
+                                    {#</div>#}
+                                    {#<div style="margin-left: 110px">#}
+                                        {#<a href="{{ path('marketing_change_course', {'course': 1}) }}">#}
+                                            {#<div>#}
+                                                {#{% if app.user.binary.course %}#}
+                                                    {#<img src="{{ asset('img/right_arrow_active.png') }}" width="56">#}
+                                                {#{% else %}#}
+                                                    {#<img src="{{ asset('img/right_arrow.png') }}">#}
+                                                {#{% endif %}#}
+                                            {#</div>#}
+                                            {#<div>#}
+                                                {#{% if app.user.binary.course %}#}
+                                                    {#<b>{{ 'office.affiliate_program.binary.on_right'|trans }}</b>#}
+                                                {#{% endif %}#}
+                                            {#</div>#}
+                                        {#</a>#}
+                                    {#</div>#}
+                                {#{% endif %}#}
+                            {#</div>#}
+                            {#<div style="">#}
+                                {#<table style="margin: 0 auto">#}
+                                    {#<tr>#}
+                                        {#<td colspan="4" align="center">#}
+                                            {#<a href="{{ path('marketing_my_binary', {'userId': app.request.attributes.get('userId')}) }}">#}
+                                                {#<div class="binary-lottery-box">#}
+                                                    {#<div>#}
+                                                        {#{% if not user.status %}#}
+                                                            {#<img src="{{ asset('img/free.png') }}" width="70" alt="Free" title="Free">#}
+                                                        {#{% elseif user.status.id == 1 %}#}
+                                                            {#<img src="{{ asset('img/silver.png') }}" width="70" alt="{{ user.status.name }}" title="{{ user.status.name }}">#}
+                                                        {#{% elseif user.status.id == 2 %}#}
+                                                            {#<img src="{{ asset('img/gold.png') }}" width="70" alt="{{ user.status.name }}" title="{{ user.status.name }}">#}
+                                                        {#{% elseif user.status.id == 3 %}#}
+                                                            {#<img src="{{ asset('img/diamond.png') }}" width="70" alt="{{ user.status.name }}" title="{{ user.status.name }}">#}
+                                                        {#{% elseif user.status.id == 4 %}#}
+                                                            {#<img src="{{ asset('img/ethereum.png') }}" width="70" alt="{{ user.status.name }}" title="{{ user.status.name }}">#}
+                                                        {#{% elseif user.status.id == 5 %}#}
+                                                            {#<img src="{{ asset('img/ethereumpro.png') }}" width="70" alt="{{ user.status.name }}" title="{{ user.status.name }}">#}
+                                                        {#{% endif %}#}
+                                                    {#</div>#}
+                                                    {#<div class="binary-username">{{ user.username }}</div>#}
+                                                {#</div>#}
+                                            {#</a>#}
+                                        {#</td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<td colspan="2"><div style="height: 20px"></div></td>#}
+                                        {#<td colspan="2"></td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#{% for binary in level1 %}#}
+                                            {#{% if binary.left %}#}
+                                                {#<td colspan="2" align="center">#}
+                                                    {#<a href="{{ path('marketing_my_binary', {'userId': binary.left.id}) }}">#}
+                                                        {#<div class="binary-lottery-box">#}
+                                                            {#<div>#}
+                                                                {#{% if not binary.left.status %}#}
+                                                                    {#<img src="{{ asset('img/free.png') }}" width="70" alt="Free" title="Free">#}
+                                                                {#{% elseif binary.left.status.id == 1 %}#}
+                                                                    {#<img src="{{ asset('img/silver.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 2 %}#}
+                                                                    {#<img src="{{ asset('img/gold.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 3 %}#}
+                                                                    {#<img src="{{ asset('img/diamond.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 4 %}#}
+                                                                    {#<img src="{{ asset('img/ethereum.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 5 %}#}
+                                                                    {#<img src="{{ asset('img/ethereumpro.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% endif %}#}
+                                                            {#</div>#}
+                                                            {#<div class="binary-username">{{ binary.left.username }}</div>#}
+                                                        {#</div>#}
+                                                    {#</a>#}
+                                                {#</td>#}
+                                            {#{% else %}#}
+                                                {#<td colspan="2" align="center">#}
+                                                    {#<div class="binary-lottery-box">#}
+
+                                                    {#</div>#}
+                                                {#</td>#}
+                                            {#{% endif %}#}
+                                            {#{% if binary.right %}#}
+                                                {#<td colspan="2" align="center">#}
+                                                    {#<a href="{{ path('marketing_my_binary', {'userId': binary.right.id}) }}">#}
+                                                        {#<div class="binary-lottery-box">#}
+                                                            {#<div>#}
+                                                                {#{% if not binary.right.status %}#}
+                                                                    {#<img src="{{ asset('img/free.png') }}" width="70" alt="Free" title="Free">#}
+                                                                {#{% elseif binary.right.status.id == 1 %}#}
+                                                                    {#<img src="{{ asset('img/silver.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 2 %}#}
+                                                                    {#<img src="{{ asset('img/gold.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 3 %}#}
+                                                                    {#<img src="{{ asset('img/diamond.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 4 %}#}
+                                                                    {#<img src="{{ asset('img/ethereum.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 5 %}#}
+                                                                    {#<img src="{{ asset('img/ethereumpro.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% endif %}#}
+                                                            {#</div>#}
+                                                            {#<div class="binary-username">{{ binary.right.username }}</div>#}
+                                                        {#</div>#}
+                                                    {#</a>#}
+                                                {#</td>#}
+                                            {#{% else %}#}
+                                                {#<td colspan="2" align="center">#}
+                                                    {#<div class="binary-lottery-box">#}
+
+                                                    {#</div>#}
+                                                {#</td>#}
+                                            {#{% endif %}#}
+                                        {#{% endfor %}#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<td><div style="height: 20px"></div></td>#}
+                                        {#<td></td>#}
+                                        {#<td></td>#}
+                                        {#<td></td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#{% for binary in level2 %}#}
+                                            {#{% if binary.left %}#}
+                                                {#<td align="center">#}
+                                                    {#<a href="{{ path('marketing_my_binary', {'userId': binary.left.id}) }}">#}
+                                                        {#<div class="binary-lottery-box">#}
+                                                            {#<div>#}
+                                                                {#{% if not binary.left.status %}#}
+                                                                    {#<img src="{{ asset('img/free.png') }}" width="70" alt="Free" title="Free">#}
+                                                                {#{% elseif binary.left.status.id == 1 %}#}
+                                                                    {#<img src="{{ asset('img/silver.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 2 %}#}
+                                                                    {#<img src="{{ asset('img/gold.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 3 %}#}
+                                                                    {#<img src="{{ asset('img/diamond.png') }}" width="70" alt="{{ binary.left.status.name }}" title="{{ binary.left.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 4 %}#}
+                                                                    {#<img src="{{ asset('img/ethereum.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.left.status.id == 5 %}#}
+                                                                    {#<img src="{{ asset('img/ethereumpro.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% endif %}#}
+                                                            {#</div>#}
+                                                            {#<div class="binary-username">{{ binary.left.username }}</div>#}
+                                                        {#</div>#}
+                                                    {#</a>#}
+                                                {#</td>#}
+                                            {#{% else %}#}
+                                                {#<td align="center">#}
+                                                    {#<div class="binary-lottery-box">#}
+
+                                                    {#</div>#}
+                                                {#</td>#}
+                                            {#{% endif %}#}
+                                            {#{% if binary.right %}#}
+                                                {#<td align="center">#}
+                                                    {#<a href="{{ path('marketing_my_binary', {'userId': binary.right.id}) }}">#}
+                                                        {#<div class="binary-lottery-box">#}
+                                                            {#<div>#}
+                                                                {#{% if not binary.right.status %}#}
+                                                                    {#<img src="{{ asset('img/free.png') }}" width="70" alt="Free" title="Free">#}
+                                                                {#{% elseif binary.right.status.id == 1 %}#}
+                                                                    {#<img src="{{ asset('img/silver.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 2 %}#}
+                                                                    {#<img src="{{ asset('img/gold.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 3 %}#}
+                                                                    {#<img src="{{ asset('img/diamond.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 4 %}#}
+                                                                    {#<img src="{{ asset('img/ethereum.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% elseif binary.right.status.id == 5 %}#}
+                                                                    {#<img src="{{ asset('img/ethereumpro.png') }}" width="70" alt="{{ binary.right.status.name }}" title="{{ binary.right.status.name }}">#}
+                                                                {#{% endif %}#}
+                                                            {#</div>#}
+                                                            {#<div class="binary-username">{{ binary.right.username }}</div>#}
+                                                        {#</div>#}
+                                                    {#</a>#}
+                                                {#</td>#}
+                                            {#{% else %}#}
+                                                {#<td align="center">#}
+                                                    {#<div class="binary-lottery-box">#}
+
+                                                    {#</div>#}
+                                                {#</td>#}
+                                            {#{% endif %}#}
+                                        {#{% endfor %}#}
+                                    {#</tr>#}
+                                {#</table>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {{ 'office.affiliate_program.binary.all_statuses'|trans }}
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div style="text-align: center">
+                        <img src="{{ asset('img/membership.png') }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        {% if app.request.attributes.get('userId') %}
+                            {{ 'office.affiliate_program.binary.binary'|trans }} {{ user.username }}
+                        {% else %}
+                            {{ 'office.affiliate_program.binary.my_binary'|trans }}
+                        {% endif %}
+                    </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% if app.user.binary %}
+                        <div class="panel panel-primary  panel-tree">
+                        <div class="panel-body panel-border">
+                            <div class="tree">
+                                <ul>
+                                    <li class="
+                                        {% if user.status.id == 1 %}
+                                            status-1
+                                        {% elseif user.status.id == 2 %}
+                                            status-2
+                                        {% elseif user.status.id == 3 %}
+                                            status-3
+                                        {% elseif user.status.id == 4 %}
+                                            status-4
+                                        {% elseif user.status.id == 5 %}
+                                            status-5
+                                        {% endif %}
+                                    ">
+                                        <a title="" href="{{ path('marketing_my_binary', {'userId': app.request.attributes.get('userId')}) }}">
+                                            <span>{{ user.username }}</span>
+                                        </a>
+                                        {% if level1 %}
+                                            <ul>
+                                                {% for binary in level1 %}
+                                                <li class="
+                                                    {% if binary.left %}
+                                                        {% if binary.left.status.id == 1 %}
+                                                            status-1
+                                                        {% elseif binary.left.status.id == 2 %}
+                                                            status-2
+                                                        {% elseif binary.left.status.id == 3 %}
+                                                            status-3
+                                                        {% elseif binary.left.status.id == 4 %}
+                                                            status-4
+                                                        {% elseif binary.left.status.id == 5 %}
+                                                            status-5
+                                                        {% endif %}
+                                                    {% endif %}
+                                                ">
+                                                    {% if binary.left %}
+                                                        <a title="" href="{{ path('marketing_my_binary', {'userId': binary.left.id }) }}">
+                                                            <span>{{ binary.left.username }}</span>
+                                                        </a>
+
+                                                        {% if level2 %}
+                                                            {% set lev = level2|first %}
+                                                            <ul>
+                                                                {% for bin in lev %}
+                                                                <li class="
+                                                                    {% if bin %}
+                                                                        {% if bin.status.id == 1 %}
+                                                                            status-1
+                                                                        {% elseif bin.status.id == 2 %}
+                                                                            status-2
+                                                                        {% elseif bin.status.id == 3 %}
+                                                                            status-3
+                                                                        {% elseif bin.status.id == 4 %}
+                                                                            status-4
+                                                                        {% elseif bin.status.id == 5 %}
+                                                                            status-5
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                ">
+                                                                    {% if bin %}
+                                                                        <a title="" href="{{ path('marketing_my_binary', {'userId': bin.id }) }}">
+                                                                            <span>{{ bin.username }}</span>
+                                                                        </a>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </li>
+                                                <li class="
+                                                    {% if binary.right %}
+                                                        {% if binary.right.status.id == 1 %}
+                                                            status-1
+                                                        {% elseif binary.right.status.id == 2 %}
+                                                            status-2
+                                                        {% elseif binary.right.status.id == 3 %}
+                                                            status-3
+                                                        {% elseif binary.right.status.id == 4 %}
+                                                            status-4
+                                                        {% elseif binary.right.status.id == 5 %}
+                                                            status-5
+                                                        {% endif %}
+                                                    {% endif %}
+                                                ">
+                                                    {% if binary.right %}
+                                                        <a title="" href="{{ path('marketing_my_binary', {'userId': binary.right.id }) }}">
+                                                            <span>{{ binary.right.username }}</span>
+                                                        </a>
+                                                        {% if level2 %}
+                                                            {% set lev = level2|last %}
+                                                            <ul>
+                                                                {% for bin in lev %}
+                                                                <li class="
+                                                                    {% if bin %}
+                                                                        {% if bin.status.id == 1 %}
+                                                                            status-1
+                                                                        {% elseif bin.status.id == 2 %}
+                                                                            status-2
+                                                                        {% elseif bin.status.id == 3 %}
+                                                                            status-3
+                                                                        {% elseif bin.status.id == 4 %}
+                                                                            status-4
+                                                                        {% elseif bin.status.id == 5 %}
+                                                                            status-5
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                ">
+                                                                    {% if bin %}
+                                                                        <a title="" href="{{ path('marketing_my_binary', {'userId': bin.id }) }}">
+                                                                            <span>{{ bin.username }}</span>
+                                                                        </a>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </div>
+                            {% if countRef >= 2 %}
+                                <span class="pull-left">
+                                    <a href="{{ path('marketing_change_course', {'course': 0}) }}" class="btn btn-success btn-sm {% if not app.user.binary.course %}active{% endif %}">First available position left</a>
+                                    <a href="{{ path('marketing_change_course', {'course': 1}) }}" class="btn btn-success btn-sm {% if app.user.binary.course %}active{% endif %}">First available position right</a>
+                                </span>
+                            {% endif %}
+                                {#<span class="pull-right"></span>#}
+                                {#<span class="pull-right">#}
+                                    {#<a id="scroll_to_top" href="#" class="btn btn-success btn-sm">Scroll to top</a>#}
+                                    {#<span title="" class="tooltip-icon fa fa-question pull-right" id="scroll_to_top_tooltip" data-original-title="Go to the top of the tree and view your position."></span>#}
+                                {#</span>#}
+                        </div>
+                    </div>
+                    {% else %}
+                        {{ 'office.affiliate_program.binary.no_binary'|trans }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if app.user.binary %}
+        <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.affiliate_program.binary.binary_points'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="center">{{ 'office.affiliate_program.binary.left_points'|trans }}</th>
+                            <th class="center">{{ 'office.affiliate_program.binary.right_points'|trans }}</th>
+                            <th class="center">{{ 'office.affiliate_program.binary.total'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="center">{{ user.binary.leftPoints }}</td>
+                            <td class="center">{{ user.binary.rightPoints }}</td>
+                            <td class="center">{{ user.binary.leftPoints + user.binary.rightPoints }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock body %}

@@ -1,0 +1,62 @@
+{% extends ':home:base.html.twig' %}
+
+{% block body %}
+
+    <!-- .page-title-container start -->
+    <section class="page-title-container">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+
+            <!-- .page-title start -->
+            <div class="page-title grid_12">
+                <div class="title">
+                    <h1>{{ 'home.login.forgot_password'|trans }}</h1>
+                </div>
+            </div><!-- .page-title end -->
+        </div><!-- .container_12 end -->
+    </section><!-- .page-title-container end -->
+
+
+    <!-- #content-wrapper start -->
+    <section id="content-wrapper">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+            <!-- .grid_6 start -->
+            <div class="grid_6">
+                {% if invalid_username is defined %}
+                    <section class="error-box">
+                        <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
+                    </section>
+                {% endif %}
+                <div style="clear: both"></div>
+                <!-- wpcf7 start -->
+                <form class="wpcf7" action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.password'|trans({}, 'FOSUserBundle') }}:</label>
+                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'wpcf7-text' }}) }}
+                        {% if form_errors(form.plainPassword.first) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.plainPassword.first) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'form.password_confirmation'|trans({}, 'FOSUserBundle') }}:</label>
+                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'wpcf7-text' }}) }}
+                        {% if form_errors(form.plainPassword.second) %}
+                            <div style="margin-left: 20px; color: red;">{{ form_errors(form.plainPassword.second) }}</div>
+                        {% endif %}
+                    </fieldset>
+                    {{ form_rest(form) }}
+                    <fieldset></fieldset>
+                    <input type="submit" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}" class="wpcf7-submit"/>
+                <form>
+            </div><!-- .grid_6 end -->
+
+            <!-- .grid_6 start -->
+            <article class="grid_6">
+
+            </article>
+        </div>
+    </section>
+{% endblock body %}

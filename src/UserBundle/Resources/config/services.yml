@@ -1,0 +1,28 @@
+services:
+    user.registration_completed:
+        class: UserBundle\EventListener\RegistrationSuccessListener
+        arguments: [@doctrine.orm.default_entity_manager, @session]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    user.login:
+        class: UserBundle\EventListener\LoginListener
+        arguments: [@service_container, @doctrine.orm.default_entity_manager]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    user.referral:
+        class: UserBundle\EventListener\ReferralListener
+        arguments: [@session]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    user.form.profile:
+        class: UserBundle\Form\Type\ProfileFormType
+        tags:
+            - { name: form.type, alias: user_profile }
+
+    user.form.registration:
+            class: UserBundle\Form\Type\RegistrationFormType
+            tags:
+                - { name: form.type, alias: app_user_registration }

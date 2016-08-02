@@ -1,0 +1,64 @@
+{% extends "::office.html.twig"  %}
+
+{% form_theme form '::twig_theme.html.twig' %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.layout.support'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'support.new_ticket'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    {{ form_start(form, {'attr':{'class': 'form-horizontal form-label-left'}}) }}
+                        <div class="form-group">
+                            {{ form_label(form.subject, 'support.subject'|trans, {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.subject, {'attr': {'class': 'form-control col-md-7 col-xs-12'}}) }}
+                                {% if form_errors(form.subject) %}
+                                    <span class="form-error">{{ form_errors(form.subject) }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.text, 'support.text'|trans, {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.text, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'rows': '6'}}) }}
+                                {% if form_errors(form.text) %}
+                                    <span class="form-error">{{ form_errors(form.text) }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {{ form_rest(form) }}
+                        <div class="ln_solid"></div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="submit">{{ 'support.sent'|trans }}</button>
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

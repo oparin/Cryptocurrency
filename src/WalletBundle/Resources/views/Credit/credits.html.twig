@@ -1,0 +1,182 @@
+{% extends "::office.html.twig"  %}
+
+{% form_theme pay_deb_form '::twig_theme.html.twig' %}
+{% form_theme convert_form '::twig_theme.html.twig' %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.wallets.wallets'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.wallets.credits'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% set wallet = app.user.wallets %}
+                    {% set account = app.user.accounts %}
+                    {% set credit = app.user.credits %}
+                    <div class="row top_tiles">
+                        <a href="{{ path('withdraw_withdraw') }}">
+                            <div class="animated flipInY col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="tile-stats wallet">
+                                    <div class="icon"><i class="fa fa-euro"></i>
+                                    </div>
+                                    <div class="count">{{ wallet[0].sum }}</div>
+                                    <h3>{{ 'office.dashboard.main_wallet'|trans }}</h3>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="{{ path('wallets_credits') }}">
+                            <div class="animated flipInY col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="tile-stats wallet">
+                                    <div class="icon"><i class="fa fa-euro"></i>
+                                    </div>
+                                    <div class="count red">{{ credit[0].sum }}</div>
+
+                                    <h3>{{ 'office.dashboard.main_credit'|trans }}</h3>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="animated flipInY col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-euro"></i>
+                                </div>
+                                <div class="count green">{{ app.user.debt }}</div>
+
+                                <h3>{{ 'office.wallets.debt'|trans }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.wallets.pay_debt'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {{ form_start(pay_deb_form, {'attr': {'class': 'form-horizontal form-label-left input_mask'}}) }}
+                        <div class="form-group">
+                            {{ form_label(pay_deb_form.account, 'office.wallets.account'|trans, {'label_attr': {'class': 'control-label col-md-5 col-sm-5 col-xs-12'}}) }}
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                {{ form_widget(pay_deb_form.account, {'attr': {'class': 'form-control account'}}) }}
+                                {% if form_errors(pay_deb_form.account) %}
+                                    <span class="form-error">{{ form_errors(pay_deb_form.account) }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12">{{ 'office.wallets.available_amount'|trans }} </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <input type="text" class="form-control avalsum" disabled="disabled">
+                                <span class="fa fa-euro form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(pay_deb_form.sum, 'office.wallets.sum'|trans, {'label_attr': {'class': 'control-label col-md-5 col-sm-5 col-xs-12'}}) }}
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                {{ form_widget(pay_deb_form.sum, {'attr': {'class': 'form-control'}}) }}
+                                {% if form_errors(pay_deb_form.sum) %}
+                                    <span class="form-error">{{ form_errors(pay_deb_form.sum) }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {{ form_rest(pay_deb_form) }}
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-5">
+                                <button type="submit" class="btn btn-primary">{{ 'office.wallets.pay_debt'|trans }}</button>
+                            </div>
+                        </div>
+                    {{ form_end(pay_deb_form) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.wallets.convertation'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {{ form_start(convert_form, {'attr': {'class': 'form-horizontal form-label-left input_mask'}}) }}
+                        <div class="form-group">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12">{{ 'office.wallets.rate'|trans }} </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <input type="text" class="form-control" disabled="disabled" placeholder="1 {{ 'office.wallets.credit'|trans }} = {{ settings.rate }}{{ currency }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-5 col-sm-5 col-xs-12">{{ 'office.wallets.available_amount'|trans }} </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <input type="text" class="form-control" disabled="disabled" placeholder="{{ credit[0].sum * settings.percentConvert / 100 }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(convert_form.sum, 'office.wallets.sum'|trans, {'label_attr': {'class': 'control-label col-md-5 col-sm-5 col-xs-12'}}) }}
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                {{ form_widget(convert_form.sum, {'attr': {'class': 'form-control'}}) }}
+                                {% if form_errors(convert_form.sum) %}
+                                    <span class="form-error">{{ form_errors(convert_form.sum) }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {{ form_rest(convert_form) }}
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-5">
+                                <button type="submit" class="btn btn-primary">{{ 'office.wallets.convertation'|trans }}</button>
+                            </div>
+                        </div>
+                    {{ form_end(convert_form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            calculatePayDebt($(".account option:selected" ).val());
+        });
+
+        $(".account" ).change(function(){
+            calculatePayDebt($(".account option:selected" ).val());
+        });
+
+        function calculatePayDebt(value)
+        {
+            if (value == 1) {
+                $(".avalsum").val({{ wallet.sum }});
+            } else if (value == 2) {
+                $(".avalsum").val({{ account.sum }});
+            }
+        }
+    </script>
+{% endblock js %}

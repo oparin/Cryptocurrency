@@ -1,0 +1,11 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        <li>
+            <a href="{{ path('all_support_tickets') }}" title="" class="{% if app.request.attributes.get('_route') == 'all_support_tickets'%}this{% endif %}">
+                <span class="icos-user"></span>
+                {{ 'support.all_tickets'|trans }}
+            </a>
+        </li>
+    </ul>
+</div>

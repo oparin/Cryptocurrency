@@ -1,0 +1,205 @@
+sent: Send
+save: Save
+
+home:
+  home:
+    home: Home
+  about:
+    about: About
+  affiliate_program:
+    affiliate_program: Affiliate Program
+  exchange:
+    exchange: Exchange
+  getting-started:
+    getting-started: Getting Started
+  terms_and_conditions:
+    terms_and_conditions: Terms And Conditions
+  privacy:
+    privacy: Privacy
+  contacts:
+    contact_us: Contact us
+    have_a_question_for_us: Have a Question for Us
+    question_text: Hey, so you decided to contact us!  Please fill in the form below and we’ll get back to you in 48 hours, except on weekends. in that case, we’ll respond on Monday.
+    contacts: Contacts
+    name: Name
+    message: Message
+    mesage_sent_succces: Message successfully sent!
+  login:
+    forgot_password: Forgot password?
+  registration:
+    terms: Terms & Conditions
+    skype: Skype
+    phone: Phone
+    full_name: Full Name
+    country: Country
+    city: City
+    address: Address
+
+support:
+  new_ticket: New ticket
+  all_tickets: All tickets
+  subject: Subject
+  text: Text
+  sent: Send
+  ticket_sent_success: Ticket successfully submitted!
+  ticket_sent_error: Ticket failed!
+  said: Replied
+  mesage_sent_succces: Message successfully sent!
+  opened: Opened
+  answered: Answered
+  closed: Closed
+  status: Status
+
+office:
+  layout:
+    dashboard: Dashboard
+    welcome: Welcome
+    profile: Profile
+    change_password: Change password
+    support: Support
+    affiliate_program: Affiliate Program
+    status_rank: Status RANK
+    no_rank: No RANK
+  dashboard:
+    main_wallet: Wallet
+    main_account: Main Account
+    main_credit: Units
+    units_profit: Units Profit
+    bonus_wallet: Bonus Wallet
+    bonus_account: Bonus Account
+    bonus_credit: Bonus Credit
+    news: News
+    referrals_info: Referrals info
+    total_referrals: Total referrals
+    direct_bonus: Direct bonus
+    binary_bonus: Binary bonus
+    units_info: Units info
+    units_convert_rate: Units convert rate
+    units_profit_rate: Units profit rate
+    quick_settings: Quick Settings
+    change_password: Change password
+    profile: Profile
+    referral_link: Referral link
+    units_convert_rate_graph: Units convert rate graph
+  affiliate_program:
+    membership: Membership
+    buy_now: Buy Now
+    view: View
+    total: Total
+    no_funds: Insufficient funds!
+    buy_success: Purchase completed successfully!
+    binary:
+      binary: Binary
+      my_binary: My Binary
+      on_left: Left
+      on_right: Right
+      binary_points: Binary points
+      left_points: Left points
+      right_points: Right points
+      total: Total
+      all_statuses: All Statuses
+      no_binary: In order to view binary tree you need to upgrade your account
+    scale:
+      scale: Matching bonus
+      level: Level
+      login: Login
+      registaration_date: Registration Date
+      status: Status
+    history:
+      binary_history: Binary bonuses
+      scale_history: Matching bonus history
+      points_history: Points history
+      date: Date
+      left_points: Left points
+      right_points: Right points
+      bonus: Bonus
+  referrals:
+    referrals: Referrals
+    history: Referral bonuses
+    my_referrals: My Referrals
+    registrationDate: Sign up date
+    lastLogin: Last visit
+    username: Username
+    date: Date
+    bonus: Bonus
+    ref_link: Referral link
+    status: Status
+    referral_link: My referral link
+  wallets:
+    wallets: Wallets
+    credits: Units
+    debt: Debt
+    convertation: Convertation
+    pay_debt: Pay Debt
+    account: Account
+    available_amount: Available amount
+    sum: Amount
+    no_funds: Insufficient funds!
+    pay_debt_success: Debt paid successfully!
+    rate: Rate
+    debt_error: You have unpaid debts!
+    credit: Unit
+    error_sum: You limit amount is exceeded!
+    convert_success: Convertation completed successfully!
+    period_error: From your last transaction didn't passed %days% days!
+    verificaton_error: You account is not verified!
+  withdraw:
+    withdraw: Withdraw
+    history: History
+    account: Account
+    wallet: Wallet
+    sum: Amount
+    available_amount: Available amount
+    error_sum: You limit amount is exceeded!
+    withdraw_success: Request successfully created!
+    debt_error: You have unpaid debts!
+    period_error: From your last transaction didn't passed %days% days!
+    min_sum: Minimum amount = %sum%
+    status: Status
+    date: Date
+  deposit:
+    deposit: Deposit
+    history: History
+    sum: Amount
+    account: Account
+    date: Date
+    add_funds: Add Funds
+    deposit_success: Add funds completed successfully!
+  career:
+    career: Career
+    left_points: Left points
+    right_points: Right points
+    overallVolume: Overall volume
+    career_rewards: Career rewards
+    rank: Rank
+    date: Date
+    comment: Comment
+  verification:
+    verification: Verification
+    passport: Passport
+    delete: Remove
+    browse: Select
+    abort: Remove
+    drag_drop: Or drag the file
+    your_data_are_pending: Your account is being checked!
+    your_data_are_success: Your account has been successfully verified!
+    your_data_are_cancel: Verification denied! Please contact support team!
+    verefication_text: To verify your identity you need to upload Passport (scanned page with photo)
+  faq:
+    faq: FAQ
+  transactions:
+    transactions: Transactions
+    date: Date
+    sum: Amount
+    main_wallet: Wallet
+    main_account: Main Account
+    main_credit: Units
+    units_profit: Units Profit
+    type: Type
+    withdraw: Withdraw
+    deposit: Deposit
+    buy_status: Membership purchase
+    buy_debt: Debt
+    convert_units: Convert units
+    profit_units: Units profit
+    refund_founds: Refund funds

@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block left_menu %}
+    {% include ('AdminSettingsBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-documents"></span>{{ 'settings.file_manager.file_manager'|trans }}{% endblock page_title %}
+
+{% block main_content %}
+    <div class="wrapper">
+        {% for flash_message in app.session.flashbag.get('success') %}
+            {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('error') %}
+            {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        <!-- File manager -->
+        <div class="widget">
+            <div class="whead"><h6>{{ 'settings.file_manager.file_manager'|trans }}</h6><div class="clear"></div></div>
+            <div id="fileManager"></div>
+        </div>
+    </div>
+{% endblock main_content %}
+
+{% block js %}
+<script type="text/javascript">
+    $( document ).ready(function() {
+        var elf = $('#fileManager').elfinder({
+            // lang: 'ru',             // language (OPTIONAL)
+            url : '{{ asset('lib/aquincum/js/files/php/connector.php') }}'  // connector URL (REQUIRED)
+        }).elfinder('instance');
+    });
+</script>
+{% endblock js %}

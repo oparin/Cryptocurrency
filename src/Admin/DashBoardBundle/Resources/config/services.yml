@@ -1,0 +1,7 @@
+services:
+    app.user_extension:
+        class: Admin\DashBoardBundle\Twig\UserExtension
+        public: false
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,84 @@
+
+
+.fullwidthbanner-container{
+    width: 100% !important;
+    position: relative;
+    padding: 0;
+    max-height: 605px !important;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 60px;
+    background: url('../assets/bkg.png') repeat-x;
+}
+
+/***********************************
+        -	CAPTIONS	-
+************************************/
+.tparrows{
+    display: none !important;
+}
+
+.tp-caption.regular_title{
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 600;
+    width: 740px !important;    
+    white-space: normal !important;
+    line-height: 38px;
+    text-shadow: 0 2px 2px #535458;
+}
+
+.tp-caption.regular_subtitle{
+    color: #c8cbd4;
+    font-size: 21px;
+    width: 720px !important;    
+    white-space: normal !important;
+    position: relative;
+    z-index: 260;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 300;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 959px){
+.fullwidthbanner-container{
+        background-size: 100% 100%;
+    }
+    
+    .tp-caption.regular_title{
+        width: 600px !important;
+    }
+    
+    .tp-caption.regular_subtitle{
+        width: 580px !important;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    .fullwidthbanner-container{
+        background-size: 100% 100%;
+    }
+    
+    .tp-caption.regular_title{
+        width: 340px !important;
+    }
+    
+    .tp-caption.regular_subtitle{
+        width: 340px !important;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px){
+.fullwidthbanner-container{
+        background-size: 100% 100%;
+    }
+    
+    .tp-caption.regular_title{
+        display: none;
+    }
+    
+    .tp-caption.regular_subtitle{
+        display: none;
+    }
+}

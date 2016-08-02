@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Новости{% endblock title %}
+
+{% block left_menu %}
+    {% include ('AdminNewsBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-book"></span>Новости{% endblock page_title %}
+
+{% block main_content %}
+    <div class="wrapper">
+        <div class="fluid">
+            <!-- Media table -->
+            <div class="widget">
+                <div class="whead">
+                    <span class="titleIcon">
+                        <div style="text-align: center">
+                            <img src="{{ asset('images/database-table-icon.png') }}" width="16">
+                        </div>
+                    </span>
+                    <h6>Все новости</h6><div class="clear"></div>
+                </div>
+                <div id="dyn" class="hiddenpars">
+                    {#<a title="Options" class="tOptions"><img alt="" src="{{ asset('lib/aquincum/images/icons/options') }}"></a>#}
+                    <div id="dynamic_wrapper" class="dataTables_wrapper" role="grid">
+                        {#<div class="tablePars">#}
+                            {#{{ grid_search(grid, '::grid.html.twig') }}#}
+                        {#</div>#}
+
+                        {{ grid(grid, '::grid.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}

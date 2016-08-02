@@ -1,0 +1,29 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        <li>
+            <a href="{{ path('settings_main_settings') }}" title="" class="{% if app.request.attributes.get('_route') == 'settings_main_settings'%}this{% endif %}">
+                <span class="icos-user"></span>
+                {{ 'settings.main_settings.main_settings'|trans }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('settings_members_status_settings') }}" title="" class="{% if app.request.attributes.get('_route') == 'settings_members_status_settings'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Статусы пользователей
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('referral_bonus_settings') }}" title="" class="{% if app.request.attributes.get('_route') == 'referral_bonus_settings'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Бонус за личного
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('settings_file_manager') }}" title="" class="{% if app.request.attributes.get('_route') == 'settings_file_manager'%}this{% endif %}">
+                <span class="icos-files"></span>
+                {{ 'settings.file_manager.file_manager'|trans }}
+            </a>
+        </li>
+    </ul>
+</div>

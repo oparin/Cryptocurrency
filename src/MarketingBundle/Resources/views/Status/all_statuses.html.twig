@@ -1,0 +1,62 @@
+{% extends "::office.html.twig"  %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.layout.affiliate_program'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.affiliate_program.membership'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for status in statuses %}
+                            <!-- price element -->
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="pricing">
+                                    <div class="title">
+                                        <h2>{{ status.name }}</h2>
+                                        <h1>{{ status.price }} $</h1>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="">
+                                            <div class="pricing_features">
+                                                {{ status.description|raw }}
+                                            </div>
+                                        </div>
+                                        <div class="pricing_footer">
+                                            <a href="{{ path('marketing_buy_status', {'id': status.id}) }}" class="btn btn-success btn-block" role="button">{{ 'office.affiliate_program.buy_now'|trans }}!</a>
+                                            {#<p>#}
+                                                {#<a href="{{ path('marketing_status', {'id': status.id}) }}">{{ 'office.affiliate_program.view'|trans }}</a>#}
+                                            {#</p>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- price element -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

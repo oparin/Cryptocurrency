@@ -1,0 +1,61 @@
+admin_faq:
+    resource: "@AdminFaqBundle/Controller/"
+    type:     annotation
+    prefix:   /faq
+
+admin_career:
+    resource: "@AdminCareerBundle/Controller/"
+    type:     annotation
+    prefix:   /career
+
+admin_news:
+    resource: "@AdminNewsBundle/Controller/"
+    type:     annotation
+    prefix:   /news
+admin_wallet:
+    resource: "@AdminWalletBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+admin_credit:
+    resource: "@AdminCreditBundle/Controller/"
+    type:     annotation
+    prefix:   /credits
+
+admin_marketing:
+    resource: "@AdminMarketingBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+admin_static_page:
+    resource: "@AdminStaticPageBundle/Controller/"
+    type:     annotation
+    prefix:   /static-page
+
+admin_support:
+    resource: "@AdminSupportBundle/Controller/"
+    type:     annotation
+    prefix:   /support
+
+admin_settings:
+    resource: "@AdminSettingsBundle/Controller/"
+    type:     annotation
+    prefix:   /settings
+
+admin_members:
+    resource: "@AdminMembersBundle/Controller/"
+    type:     annotation
+    prefix:   /members
+
+admin_dash_board:
+    resource: "@AdminDashBoardBundle/Controller/"
+    type:     annotation
+    prefix:   /dashboard
+
+admin_user:
+    resource: "@AdminUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"

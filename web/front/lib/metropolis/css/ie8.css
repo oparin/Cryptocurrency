@@ -1,0 +1,36 @@
+.top-shadow{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+}
+
+.newsletter .email{
+    margin-top: -3px;
+    padding: 5px 10px;
+}
+
+#client-carousel li img{
+     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+}
+
+#client-carousel li img:hover, 
+.portfolio-hover li, 
+.portfolio:hover .portfolio-hover, 
+.post-body .post-img{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.portfolio:hover .mask{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+}
+
+.portfolio-hover{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.portfolio-hover .mask{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.post-body .post-img:hover, 
+.blog-info .post-img:hover{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}

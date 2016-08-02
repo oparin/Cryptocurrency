@@ -1,0 +1,68 @@
+{% extends '::office.html.twig' %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.layout.affiliate_program'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.affiliate_program.scale.scale'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                            {% for level in levels %}
+                                <li role="presentation" class="{% if loop.index == 1 %}active{% endif %}">
+                                    <a href="#tab_content{{ loop.index }}" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">{{ 'office.affiliate_program.scale.level'|trans ~ ' ' ~ loop.index }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            {% for users in members %}
+                                <div role="tabpanel" class="tab-pane fade {% if loop.index == 1 %}active in{% endif %}" id="tab_content{{ loop.index }}" aria-labelledby="home-tab">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th class="center">{{ 'office.affiliate_program.scale.login'|trans }}</th>
+                                            <th class="center">Email</th>
+                                            <th class="center">{{ 'office.affiliate_program.scale.registaration_date'|trans }}</th>
+                                            <th class="center">{{ 'office.affiliate_program.scale.status'|trans }}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for member in users %}
+                                                <tr>
+                                                    <th class="center">{{ member.username }}</th>
+                                                    <td class="center">{{ member.email }}</td>
+                                                    <td class="center">{{ member.registrationDate|date('d-m-Y') }}</td>
+                                                    <td class="center">{{ member.status.name }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

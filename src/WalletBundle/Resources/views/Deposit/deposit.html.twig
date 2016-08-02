@@ -1,0 +1,64 @@
+{% extends "::office.html.twig"  %}
+
+{% form_theme form '::twig_theme.html.twig' %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.deposit.deposit'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.deposit.deposit'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                    <div class="form-group">
+                        {{ form_label(form.sum, 'office.withdraw.sum'|trans, {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.sum, {'attr': {'class': 'form-control account'}}) }}
+                            {% if form_errors(form.sum) %}
+                                <span class="form-error">{{ form_errors(form.sum) }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.type, null, {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.type, {'attr': {'class': 'form-control account'}}) }}
+                            {% if form_errors(form.type) %}
+                                <span class="form-error">{{ form_errors(form.type) }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button type="submit" class="btn btn-primary">{{ 'office.deposit.add_funds'|trans }}</button>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

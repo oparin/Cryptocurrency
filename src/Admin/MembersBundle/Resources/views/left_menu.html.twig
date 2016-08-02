@@ -1,0 +1,23 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        {#<li>#}
+            {#<a href="{{ path('members_members') }}" title="" class="{% if app.request.attributes.get('_route') == 'members_members'%}this{% endif %}">#}
+                {#<span class="icos-user"></span>#}
+                {#{{ 'members.members'|trans }}#}
+            {#</a>#}
+        {#</li>#}
+        <li>
+            <a href="{{ path('members_all_members') }}" title="" class="{% if app.request.attributes.get('_route') == 'members_all_members'%}this{% endif %}">
+                <span class="icos-users"></span>
+                {{ 'members.all_members'|trans }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('members_verification') }}" title="" class="{% if app.request.attributes.get('_route') == 'members_verification'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Верификация
+            </a>
+        </li>
+    </ul>
+</div>

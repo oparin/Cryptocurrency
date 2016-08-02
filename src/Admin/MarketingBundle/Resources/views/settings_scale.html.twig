@@ -1,0 +1,98 @@
+{% extends '::base.html.twig' %}
+
+{#{% form_theme form '::theme.html.twig' %}#}
+
+{% block left_menu %}
+    {% include ('AdminMarketingBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-settings"></span>Маркетинг{% endblock page_title %}
+
+{% block main_content %}
+    <div class="wrapper">
+        {% for flash_message in app.session.flashbag.get('success') %}
+            {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('error') %}
+            {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        {% if form_errors(form) %}
+            {% include ':notifications:error_note.html.twig' with {'message' : form_errors(form)} %}
+        {% endif %}
+        <div class="fluid">
+            <fieldset>
+                <div class="widget fluid">
+                    <div class="whead"><h6>Настройки линейки</h6><div class="clear"></div></div>
+                    {{ form_start(form) }}
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.percent, 'Процент') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.percent) }}
+                            {% if form_errors(form.percent) %}
+                                <span class="note-error">{{ form_errors(form.percent) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {{ form_rest(form) }}
+                    <div class="formRow">
+                        <div class="grid3">&nbsp;</div>
+                        <div class="grid9">
+                            <input type="submit" class="buttonS bBlue formButton" value="{{ 'save'|trans }}">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="fluid">
+            <!-- Media table -->
+            <div class="widget">
+                <div class="whead">
+                    <span class="titleIcon">
+                        <div style="text-align: center">
+                            <img width="16" src="/images/database-table-icon.png">
+                        </div>
+                    </span>
+                    <h6>Все настройки</h6><div class="clear"></div>
+                </div>
+                <div class="hiddenpars" id="dyn">
+                    <div role="grid" class="dataTables_wrapper" id="dynamic_wrapper">
+                        <table width="100%" cellspacing="0" cellpadding="0" style="border-top: 1px solid #CDCDCD" id="checkAll" class="tDefault checkAll tMedia">
+                                <thead>
+                                <tr class="">
+                                    <td style="width:200px;" class="sortCol  ">
+                                        <div>Уровень</div>
+                                    </td>
+                                    <td style="width:200px;" class="sortCol  align-right">
+                                        <div>Процент</div></td>
+                                    <td class="sortCol   last-column">
+                                        <div>
+                                            Действия
+                                        </div>
+                                    </td>
+                                </tr>
+                                </thead>
+                            <tbody>
+                                {% for settings in all_settings %}
+                                    <tr class="">
+                                        <td class="">{{ loop.index }}</td>
+                                        <td class="">{{ settings.percent }}%</td>
+                                        <td class="tableActs">
+                                            <a target="_self" class="tablectrl_small bDefault tipS" href="{{ path('marketing_settings_scale', {'id': settings.id}) }}" original-title="Редактировать"><span data-icon="" class="iconb"></span></a>
+                                            <a onclick="return confirm('Вы действительно хотите удалить этого пользователя?')" target="_self" class="tablectrl_small bDefault tipS" href="{{ path('marketing_settings_scale_delete', {'id': settings.id}) }}" original-title="Удалить"><span data-icon="" class="iconb"></span></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}

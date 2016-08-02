@@ -1,0 +1,139 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form '::theme.html.twig' %}
+
+{% block left_menu %}
+    {% include ('AdminSettingsBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-settings"></span>Настройки{% endblock page_title %}
+
+{% block main_content %}
+<div class="wrapper">
+    {% for flash_message in app.session.flashbag.get('success') %}
+        {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    {% for flash_message in app.session.flashbag.get('error') %}
+        {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    {% if form_errors(form) %}
+        {% include ':notifications:error_note.html.twig' with {'message' : form_errors(form)} %}
+    {% endif %}
+    <div class="fluid">
+        {{ form_start(form) }}
+        <fieldset>
+            <div class="widget fluid">
+                <div class="whead"><h6>Бонус за личного</h6><div class="clear"></div></div>
+                <div class="formRow">
+                    <div class="grid3">
+                    {{ form_label(form.statusFrom, 'Статус (от кого)') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.statusFrom) }}
+                        {% if form_errors(form.statusFrom) %}
+                            <span class="note-error">{{ form_errors(form.statusFrom) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.statusTo, 'Статус (от кому)') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.statusTo) }}
+                        {% if form_errors(form.statusTo) %}
+                            <span class="note-error">{{ form_errors(form.statusTo) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.bonus, 'Бонус') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.bonus) }}
+                        {% if form_errors(form.bonus) %}
+                            <span class="note-error">{{ form_errors(form.bonus) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+        {{ form_rest(form) }}
+                <div class="formRow">
+                    <div class="grid3">&nbsp;</div>
+                    <div class="grid9">
+                        <input type="submit" class="buttonS bBlue formButton" value="{{ 'save'|trans }}">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </fieldset>
+        {{ form_end(form) }}
+    </div>
+
+    <div class="fluid">
+        <!-- Media table -->
+        <div class="widget">
+            <div class="whead">
+                    <span class="titleIcon">
+                        <div style="text-align: center">
+                            <img src="{{ asset('images/database-table-icon.png') }}" width="16">
+                        </div>
+                    </span>
+                <h6>Все бонусы</h6><div class="clear"></div>
+            </div>
+            <div id="dyn" class="hiddenpars">
+                <div id="dynamic_wrapper" class="dataTables_wrapper" role="grid">
+                    {{ grid(grid, '::grid.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#<div class="row">#}
+        {#<div class="col-lg-12">#}
+            {#<div class="box">#}
+                {#<header>#}
+                    {#<div class="icons">#}
+                        {#<i class="fa fa-table"></i>#}
+                    {#</div>#}
+                    {#<h5>Все бонусы</h5>#}
+                {#</header>#}
+                {#<div id="collapse4" class="body">#}
+                    {#<table class="table table-bordered table-condensed table-hover table-striped dataTable">#}
+                        {#<thead>#}
+                        {#<tr class="grid-row-titles">#}
+                            {#<th class="sorting " style="color: black; width: 40%">Статус (от кого)</th>#}
+                            {#<th class="sorting " style="color: black; width: 20%">Статус (кому)</th>#}
+                            {#<th class="sorting " style="color: black; width: 20%">Бонус (%)</th>#}
+                            {#<th class="last-column" style="width: 10%"></th>#}
+                        {#</tr>#}
+                        {#</thead>#}
+                        {#<tbody>#}
+                        {#{% for profit in profits %}#}
+                            {#<tr class="grid-row-cells even">#}
+                                {#<td class="grid-column-lastIp">{{ profit.statusFrom.name }}</td>#}
+                                {#<td class="grid-column-registrationDate">{{ profit.statusTo.name }}</td>#}
+                                {#<td class="grid-column-registrationDate">{{ profit.bonus }}</td>#}
+                                {#<td class="" style="text-align: center">#}
+                                    {#<a target="_self" href="{{ path('referral_bonus_settings', {'id': profit.id}) }}" class="action-icon" style="margin-left: 10px">#}
+                                        {#<i class="glyphicon glyphicon-edit"></i>#}
+                                    {#</a>#}
+                                    {#<a target="_self" href="{{ path('admin_settings_members_status_delete', {'id': status.id}) }}" class="action-icon" style="margin-left: 10px">#}
+                                    {#<i class="glyphicon glyphicon-remove"></i>#}
+                                    {#</a>#}
+                                {#</td>#}
+                            {#</tr>#}
+                        {#{% endfor %}#}
+                        {#</tbody>#}
+                    {#</table>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+</div>
+{% endblock main_content %}

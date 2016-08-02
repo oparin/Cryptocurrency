@@ -1,0 +1,23 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        <li>
+            <a href="{{ path('marketing_settings_profit') }}" title="" class="{% if app.request.attributes.get('_route') == 'marketing_settings_profit'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Настройки бинара
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('marketing_settings_scale') }}" title="" class="{% if app.request.attributes.get('_route') == 'marketing_settings_scale'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Настройки линейки
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('marketing_calculate_points') }}" title="" class="{% if app.request.attributes.get('_route') == 'marketing_calculate_points'%}this{% endif %}">
+                <span class="icos-files"></span>
+                Пересчитать баллы
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,17 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        <li>
+            <a href="{{ path('admin_wallet_deposit') }}" title="" class="{% if app.request.attributes.get('_route') == 'admin_wallet_deposit'%}this{% endif %}">
+                <span class="icos-money"></span>
+                Депозит
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('admin_wallet_withdraw') }}" title="" class="{% if app.request.attributes.get('_route') == 'admin_wallet_withdraw'%}this{% endif %}">
+                <span class="icos-money"></span>
+                Запросы на вывод
+            </a>
+        </li>
+    </ul>
+</div>

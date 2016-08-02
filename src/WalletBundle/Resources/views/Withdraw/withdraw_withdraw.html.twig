@@ -1,0 +1,136 @@
+{% extends "::office.html.twig"  %}
+
+{% form_theme form '::twig_theme.html.twig' %}
+
+{% block body %}
+<div>
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{{ 'office.withdraw.withdraw'|trans }}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+{% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>{{ 'office.withdraw.withdraw'|trans }}</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                {% set wallet = app.user.wallets %}
+                {% set profit = app.user.profits %}
+                <div class="row top_tiles">
+                    <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                        &nbsp;
+                    </div>
+                    {#<a href="{{ path('withdraw_withdraw') }}">#}
+                        <div class="animated flipInY col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-euro"></i>
+                                </div>
+                                <div class="count">{{ wallet[0].sum }}</div>
+                                <h3>{{ 'office.dashboard.main_wallet'|trans }}</h3>
+                            </div>
+                        </div>
+                    {#</a>#}
+
+                    {#<a href="{{ path('withdraw_withdraw') }}">#}
+                        <div class="animated flipInY col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-euro"></i>
+                                </div>
+                                <div class="count red">{{ profit[0].sum }}</div>
+
+                                <h3>{{ 'office.dashboard.units_profit'|trans }}</h3>
+                            </div>
+                        </div>
+                    {#</a>#}
+
+                    <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <br>
+
+                {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                    <div class="form-group">
+                        {{ form_label(form.wallet, 'office.withdraw.wallet'|trans, {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.wallet, {'attr': {'class': 'form-control account wallet'}}) }}
+                            {% if form_errors(form.wallet) %}
+                                <span class="form-error">{{ form_errors(form.wallet) }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">{{ 'office.withdraw.available_amount'|trans }} </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control avalsum" disabled="disabled">
+                            <span class="fa fa-euro form-control-feedback right" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.sum, 'office.withdraw.sum'|trans, {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.sum, {'attr': {'class': 'form-control account'}}) }}
+                            {% if form_errors(form.sum) %}
+                                <span class="form-error">{{ form_errors(form.sum) }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.account, 'office.withdraw.account'|trans, {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.account, {'attr': {'class': 'form-control account'}}) }}
+                            {% if form_errors(form.account) %}
+                                <span class="form-error">{{ form_errors(form.account) }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                {{ form_rest(form) }}
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button type="submit" class="btn btn-primary">{{ 'sent'|trans }}</button>
+                        </div>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            calculatePayDebt($(".wallet option:selected" ).val());
+        });
+
+        $(".wallet" ).change(function(){
+            calculatePayDebt($(".wallet option:selected" ).val());
+        });
+
+        function calculatePayDebt(value)
+        {
+            if (value == 1) {
+                $(".avalsum").val({{ wallet.sum }});
+            } else if (value == 2) {
+                $(".avalsum").val({{ profit.sum * percent / 100 }});
+            }
+        }
+    </script>
+{% endblock js %}

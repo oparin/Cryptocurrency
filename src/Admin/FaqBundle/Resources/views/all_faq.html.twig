@@ -1,0 +1,102 @@
+{% extends '::base.html.twig' %}
+
+{% block left_menu %}
+    {% include ('AdminFaqBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-document"></span>FAQ{% endblock page_title %}
+
+{% block main_content %}
+    <div class="wrapper">
+        {% for flash_message in app.session.flashbag.get('success') %}
+            {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('error') %}
+            {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        <div class="fluid">
+            {{ form_start(form) }}
+            <fieldset>
+                <div class="widget fluid">
+                    {{ tinymce_init() }}
+                    <div class="formRow">
+                        <div class="grid2">
+                            {{ form_label(form.text, 'Текст') }}
+                        </div>
+                        <div class="grid10">
+                            {{ form_widget(form.text, {'attr': {'class': 'tinymce', 'rows': '20'}}) }}
+                            {% if form_errors(form.text) %}
+                                <span class="note-error">{{ form_errors(form.text) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid2">
+                            {{ form_label(form.locale, 'Локаль') }}
+                        </div>
+                        <div class="grid10">
+                            {{ form_widget(form.locale) }}
+                            {% if form_errors(form.locale) %}
+                                <span class="note-error">{{ form_errors(form.locale) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid2">&nbsp;</div>
+                        <div class="grid10">
+                            <input type="submit" class="buttonS bBlue formButton" value="{{ 'member.save'|trans }}">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </fieldset>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+
+        <div class="fluid">
+            <!-- Media table -->
+            <div class="widget">
+                <div class="whead">
+                    <span class="titleIcon">
+                        <div style="text-align: center">
+                            <img width="16" src="{{ asset('images/database-table-icon.png') }}">
+                        </div>
+                    </span>
+                    <h6>Все локали</h6><div class="clear"></div>
+                </div>
+                <div class="hiddenpars" id="dyn">
+                    <div role="grid" class="dataTables_wrapper" id="dynamic_wrapper">
+
+                        <table cellspacing="0" cellpadding="0" width="100%" style="border-top: 1px solid #CDCDCD" id="checkAll" class="tDefault checkAll tMedia">
+                            <thead>
+                            <tr class="">
+                                <td style="width:200px;" class="sortCol"><div>#</div></td>
+                                <td style="width:200px;" class="sortCol"><div>Локаль</div></td>
+                                <td class="sortCol   last-column"><div>Действия</div></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for faq in faqs %}
+                                <tr class="">
+                                    <td class="">{{ faq.id }}</td>
+                                    <td class="">{{ faq.locale }}</td>
+                                    <td class="tableActs">
+                                        <a target="_self" class="tablectrl_small bDefault tipS" href="{{ path('faq_all_faq', {'id': faq.id}) }}" original-title="Редактировать">
+                                            <span data-icon="" class="iconb"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}

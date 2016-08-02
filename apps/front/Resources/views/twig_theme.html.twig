@@ -1,0 +1,27 @@
+{%- block form_label -%}
+    {% if label is not same as(false) -%}
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}{% if required %} <span class="required">*</span>{% endif %}</label>
+    {%- endif -%}
+{%- endblock form_label -%}
+
+{%- block money_widget -%}
+    {#{{ money_pattern|replace({ '{{ widget }}': block('form_widget_simple') })|raw }}#}
+    {{ block('form_widget_simple') }}
+    <span class="fa fa-euro form-control-feedback right" aria-hidden="true"></span>
+{%- endblock money_widget -%}

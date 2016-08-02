@@ -1,0 +1,109 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form '::theme.html.twig' %}
+
+{% block left_menu %}
+    {% include ('AdminCreditBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-settings"></span>Настройки{% endblock page_title %}
+
+{% block main_content %}
+<div class="wrapper">
+    {% for flash_message in app.session.flashbag.get('success') %}
+        {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    {% for flash_message in app.session.flashbag.get('error') %}
+        {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    <div class="fluid">
+        {{ form_start(form) }}
+        <fieldset>
+            <div class="widget fluid">
+                <div class="whead"><h6>Настройки</h6><div class="clear"></div></div>
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.rate, 'Курс 1 юнит = :') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.rate) }}
+                        {% if form_errors(form.rate) %}
+                            <span class="note-error">{{ form_errors(form.rate) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.percentConvert, 'Процент при конвертации (%):') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.percentConvert) }}
+                        {% if form_errors(form.percentConvert) %}
+                            <span class="note-error">{{ form_errors(form.percentConvert) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.periodConvert, 'Период конвертации (дни):') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.periodConvert) }}
+                        {% if form_errors(form.periodConvert) %}
+                            <span class="note-error">{{ form_errors(form.periodConvert) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.percentProfit, 'Процент при начислении (%):') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.percentProfit) }}
+                        {% if form_errors(form.percentProfit) %}
+                            <span class="note-error">{{ form_errors(form.percentProfit) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.percentWithdraw, 'Процент при выводе (%):') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.percentWithdraw) }}
+                        {% if form_errors(form.percentWithdraw) %}
+                            <span class="note-error">{{ form_errors(form.percentWithdraw) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.periodWithdraw, 'Период вывода (дни):') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.periodWithdraw) }}
+                        {% if form_errors(form.periodWithdraw) %}
+                            <span class="note-error">{{ form_errors(form.periodWithdraw) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <div class="grid3">&nbsp;</div>
+                    <div class="grid9">
+                        <input type="submit" class="buttonS bBlue formButton" value="{{ 'save'|trans }}">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </fieldset>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock main_content %}

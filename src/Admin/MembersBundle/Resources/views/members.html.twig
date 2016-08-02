@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ 'members.members'|trans }}{% endblock title %}
+
+{% block left_menu %}
+    {% include ('AdminMembersBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-user"></span>{{ 'members.members'|trans }}{% endblock page_title %}

@@ -1,0 +1,17 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        <li>
+            <a href="{{ path('career_settings') }}" title="" class="{% if app.request.attributes.get('_route') == 'career_settings'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Настройки
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('career_success_ranks') }}" title="" class="{% if app.request.attributes.get('_route') == 'career_success_ranks'%}this{% endif %}">
+                <span class="icos-settings2"></span>
+                Присвоенные ранги
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,42 @@
+career:
+    resource: "@CareerBundle/Controller/"
+    type:     annotation
+    prefix:   /career
+
+statistic:
+    resource: "@StatisticBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+marketing:
+    resource: "@MarketingBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+wallet:
+    resource: "@WalletBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+office:
+    resource: "@OfficeBundle/Controller/"
+    type:     annotation
+    prefix:   /office
+
+support:
+    resource: "@SupportBundle/Controller/"
+    type:     annotation
+    prefix:   /office/support
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+home:
+    resource: "@HomeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

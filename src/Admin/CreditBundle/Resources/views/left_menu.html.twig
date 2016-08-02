@@ -1,0 +1,17 @@
+<div class="divider"><span></span></div>
+<div id="general">
+    <ul class="subNav">
+        <li>
+            <a href="{{ path('credits_settings') }}" title="" class="{% if app.request.attributes.get('_route') == 'credits_settings'%}this{% endif %}">
+                <span class="icos-settings"></span>
+                Настройки
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('calculate_percent') }}" title="" class="{% if app.request.attributes.get('_route') == 'calculate_percent'%}this{% endif %}">
+                <span class="icos-money"></span>
+                Начисление процентов
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,77 @@
+Deleted: Удалить
+Search: Поиск
+Actions: Действия
+edit: Редактировать
+delete: Удалить
+login: Войти
+save: Сохранить
+saved: Успешно сохранено!
+date: Дата
+status: Статус
+sent: Отправить
+sent_succces: Успешно отправлено!
+
+layout:
+  users: Пользователи
+  balance: Баланс
+  mass_action: Действия с отмеченными
+  select_action: Выберите действие...
+  settings: Настройки
+
+members:
+  members: Пользователи
+  all_members: Все пользователи
+  add_member: Добавить пользователя
+  user_table: Таблица пользователей
+  username: Логин
+  enable: Актив.
+  locked: Заблок.
+  roles: Роль
+  registrationIp: Ip Рег.
+  disabled: Отключён
+  enabled: Включён
+  lastLogin: Последнее посещение
+  registrationDate: Дата рег.
+  lastIp: Последний Ip
+  delete_confirm_message: Вы действительно хотите удалить этого пользователя?
+  sponsor: Спонсор
+  enabling: Активировать
+  disable: Деактивировать
+  lock: Заблокировать
+  unlock: Разблокировать
+
+member:
+  username: Логин
+  email: Email
+  sponsor: Спонсор
+  save: Сохранить
+  enabled: Активирован
+  locked: Заблокирован
+  registration_date: Дата регистрации
+  last_login: Последнее посещение
+  registrationIp: Ip Регистрации
+  lastIp: Последний Ip
+  password: Пароль
+  repeat_password: Повторите пароль
+
+settings:
+  main_settings:
+    main_settings: Общие настройки
+    host_name: Имя хоста сайта
+  file_manager:
+    file_manager: Менеджер файлов
+
+support:
+  support: Поддержка
+  all_tickets: Все тикеты
+  ticket: Тикет
+  subject: Тема
+  user: Отправитель
+  open: Открыт
+  answered: Отвечен
+  close: Закрыт
+  says: Сказал
+  answer: Ответ
+  text: Текст ответа
+  close_ticket: Закрыть тикет
+

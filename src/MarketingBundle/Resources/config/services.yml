@@ -1,0 +1,18 @@
+services:
+    marketing.listener.binary.new:
+        class: MarketingBundle\EventListener\BinaryListener
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags:
+            - { name: kernel.event_listener, event: new_binary, method: createNewBinary }
+
+    marketing.listener.binary.set_points:
+        class: MarketingBundle\EventListener\BinaryListener
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags:
+            - { name: kernel.event_listener, event: set_points, method: setPoints }
+
+    marketing.listener.scale.add_user:
+        class: MarketingBundle\EventListener\ScaleListener
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags:
+            - { name: kernel.event_listener, event: add_in_scale, method: addUserInScale }

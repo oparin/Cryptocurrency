@@ -1,0 +1,21 @@
+{% extends ':home:base.html.twig' %}
+
+
+{% block body %}
+
+    <!-- .page-title-container start -->
+    <section class="page-title-container">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+
+            <!-- .page-title start -->
+            <div class="page-title grid_12">
+                <div class="title">
+                    <h1>{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</h1>
+                </div>
+            </div><!-- .page-title end -->
+        </div><!-- .container_12 end -->
+    </section><!-- .page-title-container end -->
+
+{% endblock body %}

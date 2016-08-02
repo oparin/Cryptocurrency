@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quantosolution.com</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ asset('lib/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{ asset('lib/gentelella/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- iCheck -->
+    <!-- iCheck -->
+    <link href="{{ asset('lib/gentelella/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="{{ asset('lib/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <!-- jVectorMap -->
+    <link href="{{ asset('lib/gentelella/css/maps/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="{{ asset('lib/gentelella/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom_style.css') }}" rel="stylesheet">
+    {% block style %}{% endblock style %}
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="{{ path('office_dashboard') }}" class="site_title" title="{{ 'office.layout.status_rank'|trans }}">
+                        {#<i class="fa fa-paw"></i>#}
+                        <div id="circle">
+                        </div>
+                        <span>&nbsp;&nbsp;
+                            {% if app.user.rank %}
+                                {{ app.user.rank.name }}
+                            {% else %}
+                                {{ 'office.layout.no_rank'|trans }}
+                            {% endif %}
+                        </span>
+                    </a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile">
+                    <div class="profile_pic">
+                        <img src="{{ asset('lib/gentelella/images/img.jpg') }}" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>{{ 'office.layout.welcome'|trans }},</span>
+                        <h2>{{ app.user.username }}</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>
+                            {% if app.user.status %}
+                                {{ app.user.status.name }}
+                            {% else %}
+                                Free
+                            {% endif %}
+                        </h3>
+                        <ul class="nav side-menu">
+                            <li>
+                                <a href="{{ path('office_dashboard') }}">
+                                    <i class="fa fa-home"></i> {{ 'office.layout.dashboard'|trans }}
+                                </a>
+                            </li>
+                            <li class="
+                                {#{%#}
+                                    {#if app.request.attributes.get('_route') == 'marketing_status'#}
+                                    {#or app.request.attributes.get('_route') == 'marketing_my_binary'#}
+                                    {#or app.request.attributes.get('_route') == 'marketing_my_scale'#}
+                                    {#or app.request.attributes.get('_route') == 'marketing_statistic'#}
+                                {#%}#}
+                                {#active#}
+                                {#{% endif %}#}
+                            ">
+                                <a>
+                                    <i class="fa fa-sitemap"></i> {{ 'home.affiliate_program.affiliate_program'|trans }} <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu"
+                                    {#{%#}
+                                        {#if app.request.attributes.get('_route') == 'marketing_status'#}
+                                        {#or app.request.attributes.get('_route') == 'marketing_my_binary'#}
+                                        {#or app.request.attributes.get('_route') == 'marketing_my_scale'#}
+                                        {#or app.request.attributes.get('_route') == 'marketing_statistic'#}
+                                    {#%}#}
+                                        style="display: block"
+                                    {#{% endif %}#}
+                                >
+                                    <li>
+                                        <a href="{{ path('marketing_all_statuses') }}">{{ 'office.affiliate_program.membership'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('marketing_my_binary') }}">{{ 'office.affiliate_program.binary.binary'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('marketing_my_scale') }}">{{ 'office.affiliate_program.scale.scale'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('marketing_binary_statistic') }}">{{ 'office.affiliate_program.history.binary_history'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('marketing_scale_statistic') }}">{{ 'office.affiliate_program.history.scale_history'|trans }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="fa fa-building"></i> {{ 'office.career.career'|trans }} <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu"  style="display: block">
+                                    <li>
+                                        <a href="{{ path('office_career') }}">{{ 'office.career.career'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('office_career_rewards') }}">{{ 'office.career.career_rewards'|trans }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="fa fa-users"></i> {{ 'office.referrals.referrals'|trans }} <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu"  style="display: block">
+                                    <li>
+                                        <a href="{{ path('referrals_statistic') }}">{{ 'office.referrals.history'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('referrals_my_referrals') }}">{{ 'office.referrals.my_referrals'|trans }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="fa fa-level-down"></i> {{ 'office.deposit.deposit'|trans }} <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu"  style="display: block">
+                                    <li>
+                                        <a href="{{ path('office_deposit_statistic') }}">{{ 'office.deposit.history'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('office_deposit') }}">{{ 'office.deposit.deposit'|trans }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="fa fa-level-up"></i> {{ 'office.withdraw.withdraw'|trans }} <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu"  style="display: block">
+                                    <li>
+                                        <a href="{{ path('withdraw_statistic') }}">{{ 'office.withdraw.history'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('withdraw_withdraw') }}">{{ 'office.withdraw.withdraw'|trans }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_verification') }}">
+                                    <i class="fa fa-lock"></i> {{ 'office.verification.verification'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('statistic_transaction') }}">
+                                    <i class="fa fa-euro"></i> {{ 'office.transactions.transactions'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="fa fa-support"></i> {{ 'office.layout.support'|trans }}
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu" style="display: block">
+                                    <li>
+                                        <a href="{{ path('new_ticket') }}">{{ 'support.new_ticket'|trans }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('all_tickets') }}">{{ 'support.all_tickets'|trans }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ path('office_faq') }}">
+                                    <i class="fa fa-question-circle"></i> {{ 'office.faq.faq'|trans }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                {#<div class="sidebar-footer hidden-small">#}
+                    {#<a data-toggle="tooltip" data-placement="top" title="Settings">#}
+                        {#<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>#}
+                    {#</a>#}
+                    {#<a data-toggle="tooltip" data-placement="top" title="FullScreen">#}
+                        {#<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>#}
+                    {#</a>#}
+                    {#<a data-toggle="tooltip" data-placement="top" title="Lock">#}
+                        {#<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>#}
+                    {#</a>#}
+                    {#<a data-toggle="tooltip" data-placement="top" title="Logout">#}
+                        {#<span class="glyphicon glyphicon-off" aria-hidden="true"></span>#}
+                    {#</a>#}
+                {#</div>#}
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+
+            <div class="nav_menu">
+                <nav class="" role="navigation">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('lib/gentelella/images/img.jpg') }}" alt="">{{ app.user.username }}
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li>
+                                    <a href="{{ path('fos_user_profile_edit') }}">  {{ 'office.layout.profile'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('fos_user_change_password') }}">  {{ 'office.layout.change_password'|trans }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            {% block body %}
+
+            {% endblock body %}
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="" style="text-align: center">
+                Copyright Quantosolution.com © 2016 - All Rights Reserved
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="{{ asset('lib/gentelella/vendors/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('lib/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ asset('lib/gentelella/vendors/fastclick/lib/fastclick.js') }}"></script>
+<!-- NProgress -->
+<script src="{{ asset('lib/gentelella/vendors/nprogress/nprogress.js') }}"></script>
+<!-- Chart.js -->
+<script src="{{ asset('lib/gentelella/vendors/Chart.js/dist/Chart.min.js') }}"></script>
+<!-- gauge.js -->
+<script src="{{ asset('lib/gentelella/vendors/bernii/gauge.js/dist/gauge.min.js') }}"></script>
+<!-- bootstrap-progressbar -->
+<script src="{{ asset('lib/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+<!-- iCheck -->
+<script src="{{ asset('lib/gentelella/vendors/iCheck/icheck.min.js') }}"></script>
+<!-- Skycons -->
+<script src="{{ asset('lib/gentelella/vendors/skycons/skycons.js') }}"></script>
+<!-- Flot -->
+<script src="{{ asset('lib/gentelella/vendors/Flot/jquery.flot.js') }}"></script>
+<script src="{{ asset('lib/gentelella/vendors/Flot/jquery.flot.pie.js') }}"></script>
+<script src="{{ asset('lib/gentelella/vendors/Flot/jquery.flot.time.js') }}"></script>
+<script src="{{ asset('lib/gentelella/vendors/Flot/jquery.flot.stack.js') }}"></script>
+<script src="{{ asset('lib/gentelella/vendors/Flot/jquery.flot.resize.js') }}"></script>
+<!-- Flot plugins -->
+<script src="{{ asset('lib/gentelella/js/flot/jquery.flot.orderBars.js') }}"></script>
+<script src="{{ asset('lib/gentelella/js/flot/date.js') }}"></script>
+<script src="{{ asset('lib/gentelella/js/flot/jquery.flot.spline.js') }}"></script>
+<script src="{{ asset('lib/gentelella/js/flot/curvedLines.js') }}"></script>
+<!-- jVectorMap -->
+<script src="{{ asset('lib/gentelella/js/maps/jquery-jvectormap-2.0.3.min.js') }}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{{ asset('lib/gentelella/js/moment/moment.min.js') }}"></script>
+<script src="{{ asset('lib/gentelella/js/datepicker/daterangepicker.js') }}"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="{{ asset('lib/gentelella/js/custom.js') }}"></script>
+
+
+
+<!-- jVectorMap -->
+<script src="{{ asset('lib/gentelella/js/maps/jquery-jvectormap-world-mill-en.js') }}"></script>
+<script src="{{ asset('lib/gentelella/js/maps/jquery-jvectormap-us-aea-en.js') }}"></script>
+<script src="{{ asset('lib/gentelella/js/maps/gdp-data.js') }}"></script>
+
+{% block js %}{% endblock js %}
+</body>
+</html>

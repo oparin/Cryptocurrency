@@ -1,0 +1,233 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form '::theme.html.twig' %}
+
+{% block left_menu %}
+    {% include ('AdminMembersBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-users"></span>{{ 'members.all_members'|trans }}{% endblock page_title %}
+
+{% block main_content %}
+<div class="wrapper">
+    {% for flash_message in app.session.flashbag.get('success') %}
+        {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    {% for flash_message in app.session.flashbag.get('error') %}
+        {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    <div class="fluid">
+        {{ form_start(form) }}
+            <fieldset>
+                <div class="widget fluid">
+                    <div class="whead"><h6>{{ member.username }}</h6><div class="clear"></div></div>
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.username, 'member.username'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.username) }}
+                            {% if form_errors(form.username) %}
+                                <span class="note-error">{{ form_errors(form.username) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.email, 'member.email'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.email) }}
+                            {% if form_errors(form.email) %}
+                                <span class="note-error">{{ form_errors(form.email) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.sponsor, 'member.sponsor'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.sponsor) }}
+                            {% if form_errors(form.sponsor) %}
+                                <span class="note-error">{{ form_errors(form.sponsor) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    {% for wallet in form.wallets %}
+                        <div class="formRow">
+                            <div class="grid3">
+                                {{ form_label(wallet.sum, 'Кошелёк:') }}
+                            </div>
+                            <div class="grid9">
+                                {{ form_widget(wallet.sum) }}
+                                {% if form_errors(wallet.sum) %}
+                                    <span class="note-error">{{ form_errors(wallet.sum) }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="clear"></div>
+                        </div><!-- /.form-group -->
+                    {% endfor %}
+
+                    {% for wallet in form.accounts %}
+                        <div class="formRow">
+                            <div class="grid3">
+                                {{ form_label(wallet.sum, 'Счёт:') }}
+                            </div>
+                            <div class="grid9">
+                                {{ form_widget(wallet.sum) }}
+                                {% if form_errors(wallet.sum) %}
+                                    <span class="note-error">{{ form_errors(wallet.sum) }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="clear"></div>
+                        </div><!-- /.form-group -->
+                    {% endfor %}
+
+                    {% for wallet in form.credits %}
+                        <div class="formRow">
+                            <div class="grid3">
+                                {{ form_label(wallet.sum, 'Юниты:') }}
+                            </div>
+                            <div class="grid9">
+                                {{ form_widget(wallet.sum) }}
+                                {% if form_errors(wallet.sum) %}
+                                    <span class="note-error">{{ form_errors(wallet.sum) }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="clear"></div>
+                        </div><!-- /.form-group -->
+                    {% endfor %}
+
+                    {% for wallet in form.profits %}
+                        <div class="formRow">
+                            <div class="grid3">
+                                {{ form_label(wallet.sum, 'Юнит профит:') }}
+                            </div>
+                            <div class="grid9">
+                                {{ form_widget(wallet.sum) }}
+                                {% if form_errors(wallet.sum) %}
+                                    <span class="note-error">{{ form_errors(wallet.sum) }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="clear"></div>
+                        </div><!-- /.form-group -->
+                    {% endfor %}
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.enabled, 'member.enabled'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9 on_off">
+                            {{ form_widget(form.enabled) }}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.locked, 'member.locked'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9 on_off">
+                            {{ form_widget(form.locked) }}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.registrationDate, 'member.registration_date'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.registrationDate) }}
+                            {% if form_errors(form.registrationDate) %}
+                                <span class="note-error">{{ form_errors(form.registrationDate) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.last_login, 'member.last_login'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.last_login) }}
+                            {% if form_errors(form.last_login) %}
+                                <span class="note-error">{{ form_errors(form.last_login) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.registrationIp, 'member.registrationIp'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.registrationIp) }}
+                            {% if form_errors(form.registrationIp) %}
+                                <span class="note-error">{{ form_errors(form.registrationIp) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.lastIp, 'member.lastIp'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.lastIp) }}
+                            {% if form_errors(form.lastIp) %}
+                                <span class="note-error">{{ form_errors(form.lastIp) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.plain_password.first, 'member.password'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.plain_password.first) }}
+                            {% if form_errors(form.plain_password.first) %}
+                                <span class="note-error">{{ form_errors(form.plain_password.first) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.plain_password.second, 'member.repeat_password'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.plain_password.second) }}
+                            {% if form_errors(form.plain_password.second) %}
+                                <span class="note-error">{{ form_errors(form.plain_password.second) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">&nbsp;</div>
+                        <div class="grid9">
+                            <input type="submit" class="buttonS bBlue formButton" value="{{ 'member.save'|trans }}">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </fieldset>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock main_content %}

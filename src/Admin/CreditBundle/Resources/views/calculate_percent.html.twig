@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block left_menu %}
+    {% include ('AdminCreditBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-settings"></span>Юниты{% endblock page_title %}
+
+{% block main_content %}
+    <div class="wrapper">
+        {% for flash_message in app.session.flashbag.get('success') %}
+            {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('error') %}
+            {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        <div class="fluid">
+            <form action="" method="post">
+                <fieldset>
+                    <div class="widget fluid">
+                        <div class="whead"><h6>Начисление процентов</h6><div class="clear"></div></div>
+                        <div class="formRow">
+                            <div class="grid3">&nbsp;</div>
+                            <div class="grid9">
+                                <input type="submit" class="buttonS bBlue formButton" value="Начислить проценты">
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock main_content %}

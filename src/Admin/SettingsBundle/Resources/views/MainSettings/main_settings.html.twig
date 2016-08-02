@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme form '::theme.html.twig' %}
+
+{% block left_menu %}
+    {% include ('AdminSettingsBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-settings"></span>{{ 'settings.main_settings.main_settings'|trans }}{% endblock page_title %}
+
+{% block main_content %}
+<div class="wrapper">
+    {% for flash_message in app.session.flashbag.get('success') %}
+        {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    {% for flash_message in app.session.flashbag.get('error') %}
+        {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+    {% endfor %}
+    <div class="fluid">
+        {{ form_start(form) }}
+        <fieldset>
+            <div class="widget fluid">
+                <div class="whead"><h6>{{ 'settings.main_settings.main_settings'|trans }}</h6><div class="clear"></div></div>
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.hostName, 'settings.main_settings.host_name'|trans ~ ':') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.hostName) }}
+                        {% if form_errors(form.hostName) %}
+                            <span class="note-error">{{ form_errors(form.hostName) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.registrationFee, 'Регистрационный сбор') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.registrationFee) }}
+                        {% if form_errors(form.registrationFee) %}
+                            <span class="note-error">{{ form_errors(form.registrationFee) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <div class="grid3">
+                        {{ form_label(form.minWithdraw, 'Мин. сумма на вывод') }}
+                    </div>
+                    <div class="grid9">
+                        {{ form_widget(form.minWithdraw) }}
+                        {% if form_errors(form.minWithdraw) %}
+                            <span class="note-error">{{ form_errors(form.minWithdraw) }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <div class="grid3">&nbsp;</div>
+                    <div class="grid9">
+                        <input type="submit" class="buttonS bBlue formButton" value="{{ 'save'|trans }}">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </fieldset>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock main_content %}

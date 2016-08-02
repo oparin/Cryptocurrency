@@ -1,0 +1,111 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ 'support.ticket'|trans }}{% endblock title %}
+
+{% block left_menu %}
+    {% include ('AdminSupportBundle::left_menu.html.twig') %}
+{% endblock left_menu %}
+
+{% block page_title %}<span class="icon-mail"></span>{{ 'support.support'|trans }}{% endblock page_title %}
+
+{% block main_content %}
+    <div class="wrapper">
+        {% for flash_message in app.session.flashbag.get('success') %}
+            {% include ':notifications:success_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        {% for flash_message in app.session.flashbag.get('error') %}
+            {% include ':notifications:error_note.html.twig' with {'message' : flash_message} %}
+        {% endfor %}
+        <div class="fluid">
+            <!-- Messages #1 -->
+            <div class="widget grid12">
+                <div class="whead">
+                    <h6>{{ ticket.subject }}</h6>
+                    <div class="clear"></div>
+                </div>
+
+                <ul class="messagesOne">
+                    <li class="by_user">
+                        <a href="#" title=""><img src="{{ asset('lib/aquincum/images/live/face1.png') }}" alt="" /></a>
+                        <div class="messageArea">
+                            <span class="aro"></span>
+                            <div class="infoRow">
+                                <span class="name"><strong>{{ ticket.user.username }}</strong> {{ 'support.says'|trans }}:</span>
+                                <span class="time">{{ ticket.date|date('d-m-Y H:i:s') }}</span>
+                                <div class="clear"></div>
+                            </div>
+                            {{ ticket.text }}
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+
+                    <li class="divider"><span></span></li>
+
+                    {% for answer in answers %}
+                        {% if answer.role %}
+                        <li class="by_me">
+                            <a href="#" title=""><img src="{{ asset('lib/aquincum/images/live/face2.png') }}" alt="" /></a>
+                        {% else %}
+                        <li class="by_user">
+                            <a href="#" title=""><img src="{{ asset('lib/aquincum/images/live/face1.png') }}" alt="" /></a>
+                        {% endif %}
+                            <div class="messageArea">
+                                <span class="aro"></span>
+                                <div class="infoRow">
+                                    <span class="name">
+                                        <strong>{% if answer.role %}Support{% else %}{{ ticket.user.username }}{% endif %}</strong> {{ 'support.says'|trans }}:</span>
+                                    <span class="time">{{ answer.date|date('d-m-Y H:i:s') }}</span>
+                                    <div class="clear"></div>
+                                </div>
+                                {{ answer.text }}
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="fluid">
+            {{ form_start(form) }}
+            <fieldset>
+                <div class="widget fluid">
+                    <div class="whead"><h6>{{ 'support.answer'|trans }}</h6><div class="clear"></div></div>
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.text, 'support.text'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9">
+                            {{ form_widget(form.text) }}
+                            {% if form_errors(form.text) %}
+                                <span class="note-error">{{ form_errors(form.text) }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3">
+                            {{ form_label(form.close, 'support.close_ticket'|trans ~ ':') }}
+                        </div>
+                        <div class="grid9 on_off">
+                            {{ form_widget(form.close) }}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    {{ form_rest(form) }}
+
+                    <div class="formRow">
+                        <div class="grid3">&nbsp;</div>
+                        <div class="grid9">
+                            <input type="submit" class="buttonS bBlue formButton" value="{{ 'sent'|trans }}">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </fieldset>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock main_content %}

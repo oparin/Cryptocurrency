@@ -1,0 +1,1324 @@
+/* =============================================================================
+    16. RESPONSIVE - MEDIA QUERIES
+============================================================================= */
+@media only screen and (min-width: 768px) and (max-width: 959px){
+    #content-wrapper{
+        width: 728px;
+    }
+
+    #header{
+        width: 688px;
+    }
+
+    #contact-info-container{
+        width: 406px;
+    }
+
+    #nav{
+        width: 100% !important;
+        float: none;
+        margin-right: 0;
+    }
+
+    #search-box{
+        display: none;
+    }
+
+    .top-shadow{
+        width: 100%;
+        float: left;
+        z-index: 200; 
+    }
+
+    #nav{
+        float: none;
+        margin: 0 auto;
+        display: table;
+    }
+
+    iframe{
+        max-width: 100%;
+        height: auto;
+    }
+
+    img{
+        max-width: 100%;
+    }
+
+    /* GRIDS */
+    .container_12{
+        width: 708px !important;
+    }
+
+    .grid_1{
+        width: 39px !important;
+    }
+    .grid_2{
+        width: 98px !important;
+    }
+    .grid_3{
+        width: 157px !important;
+    }
+    .grid_4{
+        width: 216px !important;
+    }
+    .grid_5{
+        width: 275px !important;
+    }
+    .grid_6{
+        width: 334px !important;
+    }
+    .grid_7{
+        width: 393px !important;
+    }
+    .grid_8{
+        width: 452px !important;
+    }
+    .grid_9{
+        width: 511px !important;
+    }
+    .grid_10{
+        width: 570px !important;
+    }
+    .grid_11{
+        width: 629px !important;
+    }
+    .grid_12{
+        width: 688px !important;
+    }
+
+    .arrow-list li{
+        background-position: 0 2px !important;
+    }
+
+    /* ENTRY NOTE
+    ------------------------------------------------------------------------- */
+    .entry-note p{
+        padding: 0;
+    }
+
+    /* NOTE
+    ------------------------------------------------------------------------- */
+    .grid_12 .note-container .note-content .note{
+        max-width: 508px;
+    }
+
+    /* CLIENT CAROUSEL
+    --------------------------------------------------------------------------*/
+    #client-carousel li{
+        width: 135px !important;
+        min-height: 70px !important;
+    }
+
+    .client-carousel .caroufredsel_wrapper{
+        width: 688px !important;
+        min-height: 72px !important;
+    }
+
+    #client-carousel li img{
+        width: 120px;
+    }
+
+    /* TABS HORISONTAL
+    -------------------------------------------------------------------------- */
+    .tabs li{
+        width: 100%;
+        border-right: 1px solid #eee;
+        border-left: 1px solid #eee;
+
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    .tabs li.active{
+        border-right: 1px solid #eee;
+    }
+
+    /* TESTIMONIAL CAROUSEL
+    ------------------------------------------------------------------------- */
+    .grid_4.aside-right .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_4.aside-left .carousel-testimonial .caroufredsel_wrapper,
+    .grid_4.aside-right .carousel-testimonial .carousel-li > li, .grid_4.aside-left .carousel-testimonial .carousel-li > li{
+        width: 196px !important;
+    }
+
+    .grid_3 .carousel-testimonial .carousel-li > li, 
+    .grid_3 .carousel-testimonial .caroufredsel_wrapper{width: 157px !important;}
+    .grid_4 .carousel-testimonial .carousel-li > li, 
+    .grid_4 .carousel-testimonial .caroufredsel_wrapper{width: 216px !important;}
+    .grid_5 .carousel-testimonial .carousel-li > li, 
+    .grid_5 .carousel-testimonial .caroufredsel_wrapper{width: 275px !important;}
+    .grid_6 .carousel-testimonial .carousel-li > li, 
+    .grid_6 .carousel-testimonial .caroufredsel_wrapper{width: 334px !important;}
+    .grid_7 .carousel-testimonial .carousel-li > li, 
+    .grid_7 .carousel-testimonial .caroufredsel_wrapper{width: 393px !important;}
+    .grid_8 .carousel-testimonial .carousel-li > li, 
+    .grid_8 .carousel-testimonial .caroufredsel_wrapper{width: 452px !important;}
+    .grid_9 .carousel-testimonial .carousel-li > li, 
+    .grid_9 .carousel-testimonial .caroufredsel_wrapper{width: 511px !important;}
+    .grid_12 .carousel-testimonial .carousel-li > li, 
+    .grid_12 .carousel-testimonial .caroufredsel_wrapper{width: 688px !important;}
+
+    /* TESTIMONIALS ALTERNATIVE
+    -------------------------------------------------------------------------- */
+    .testimonials-alternative-nav li{
+        width: 39px;
+    }
+
+    /* CAROUSEL ARTICLE
+    ------------------------------------------------------------------------- */
+    .carousel-article .caroufredsel_wrapper{
+        width: 100% !important;
+    }
+
+    .carousel-article{
+        float: left;
+        width: 100%;
+    }
+
+    .grid_3 .carousel-article .caroufredsel_wrapper{
+        width: 157px !important;
+    }
+    .grid_3 .carousel-article .carousel-li > li{
+        width: 157px !important;
+        margin-right: 0;
+    }
+
+    .grid_4 .carousel-article .caroufredsel_wrapper{
+        width: 216px !important;
+    }
+    
+    .grid_4 .carousel-article .carousel-li > li{
+        width: 216px !important;
+        margin-right: 0;
+    }
+
+    .grid_4.aside-left .carousel-article .carousel-li > li, 
+    .grid_4.aside-right .carousel-article .carousel-li > li{
+        width: 196px !important;
+    }
+    
+    .grid_4.aside-left .carousel-article .caroufredsel_wrapper, 
+    .grid_4.aside-right .carousel-article .caroufredsel_wrapper{
+        width: 196px !important;
+    }
+
+    .grid_5 .carousel-article .caroufredsel_wrapper{
+        width: 275px !important;
+    }
+    .grid_5 .carousel-article .carousel-li > li{
+        width: 275px !important;
+        margin-right: 0;
+    }
+
+    .grid_6 .carousel-article .caroufredsel_wrapper{
+        width: 334px !important;
+    }
+    .grid_6 .carousel-article .carousel-li > li{
+        width: 334px !important;
+        margin-right: 0;
+    }
+
+    .grid_7 .carousel-article .caroufredsel_wrapper{
+        width: 393px !important;
+    }
+    .grid_7 .carousel-article .carousel-li > li{
+        width: 393px !important;
+        margin-right: 0;
+    }
+
+    .grid_8 .carousel-article .caroufredsel_wrapper{
+        width: 452px !important;
+    }
+    .grid_8 .carousel-article .carousel-li > li{
+        width: 452px !important;
+        margin-right: 0;
+    }
+
+    .grid_9 .caroufredsel_wrapper .caroufredsel_wrapper{
+        width: 511px !important;
+    }
+    .grid_9 .carousel-article .carousel-li > li{
+        width: 511px !important;
+        margin-right: 0;
+    }
+
+    .grid_12 .carousel-article .caroufredsel_wrapper{
+        width: 688px !important;
+    }
+    .grid_12 .carousel-article .carousel-li > li{
+        width: 688px !important;
+        margin-right: 0;
+    }
+
+    /* NIVO SLIDER
+    --------------------------------------------------------------------------*/
+    .nivoSlider.image-slider, 
+    .nivoSlider.image-slider img{
+        width: 100%;
+    }
+
+    /* HOME PAGE RECENT POSTS WIDGET 
+    ------------------------------------------------------------------------- */
+    .latest-blog-posts .post-info{
+        width: 98px;    
+    }
+
+    .latest-blog-posts .post-body{
+        width: 216px;
+    }
+
+    .latest-blog-posts .post-body .post-meta .title-date{
+        width: 156px;
+    }
+
+    /* ABOUT  
+    --------------------------------------------------------------------------*/   
+    .team-info .title-position{
+        width: 100%;
+        left: 0;
+        position: relative;
+    }
+
+
+    /* SERVICES
+    ------------------------------------------------------------------------- */
+    .grid_3 .service-box-1 .icon, 
+    .grid_4 .service-box-1 .icon{
+        margin: 0 auto 20px;
+        float: none;
+    }
+
+    .grid_3 .service-box-1 .content, 
+    .grid_4 .service-box-1 .content{
+        width: 100%;
+    }
+
+    .grid_3 .service-box-1 .content .title, 
+    .grid_4 .service-box-1 .content .title{
+        text-align: center;
+    }
+
+    .grid_3 .service-box-1 .content .title a,
+    .grid_4 .service-box-1 .content .title a{
+        text-align: center;
+        width: 100%;
+    }
+
+    .grid_5 .service-box-1 .content{width: 203px;}
+    .grid_6 .service-box-1 .content{width: 262px;}
+    .grid_7 .service-box-1 .content{width: 321px;}
+    .grid_8 .service-box-1 .content{width: 380px;}
+    .grid_9 .service-box-1 .content{width: 439px;}
+    .grid_12 .service-box-1 .content{width: 616px;}
+
+    /* PAGES WITH SIDEBAR 
+    ------------------------------------------------------------------------- */
+    .aside-right, 
+    .aside-left{
+        width: 196px !important;
+    }
+    
+    /* PRICING TABLES 
+    ------------------------------------------------------------------------- */
+    .pricing-table-col.labels{
+        margin-top: 51px;
+    }
+
+    /* PORTFOLIO
+    --------------------------------------------------------------------------*/
+    .portfolio img{
+        width: 100%;
+    }
+    .carousel-portfolio .carousel-li > li{
+        width: 157px !important;
+        min-height: 173px !important;
+    }
+
+    .carousel-gallery .carousel-li > li, 
+    .carousel-gallery .carousel-li > li img{
+        width: 228px !important;
+        min-height: 185px;
+    }
+
+    .carousel-gallery .caroufredsel_wrapper {
+        width: 688px !important;
+        min-height: 185px !important;
+    }
+
+    .carousel-portfolio .caroufredsel_wrapper{
+        width: 688px !important;
+        min-height: 173px !important;
+    }
+
+    .grid_12.portfolio-style-1 .portfolio{
+        width: 393px;
+    }
+
+    .grid_12.portfolio-style-1 .portfolio-info{
+        width: 275px;
+    }
+
+    .portfolio-pagination .pager{
+        width: 548px;
+    }
+
+    .grid_3.portfolio-style-1 .portfolio, 
+    .grid_4.portfolio-style-1 .portfolio, 
+    .grid_6.portfolio-style-1 .portfolio{
+        width: 100%;
+    }
+
+    .gallery .grid_4.portfolio-style-gallery{
+        width: 228px !important;
+    }
+
+    /* BLOG 
+   --------------------------------------------------------------------------*/
+    .post-body, .post-body-container{
+        width: 322px;
+    }
+
+    .post-body .nivoSlider.blog-slider, 
+    .post-body .nivoSlider.blog-slider img{
+        width: 322px;
+        height: auto;
+        min-height: 160px;
+    }
+
+    .nivoSlider.blog-slider, 
+    .nivoSlider.blog-slider img{
+        width: 100%;
+    }
+
+    .post-author .info{
+        width: 216px;
+    }
+
+    #respond .name-container input, #respond .email-container input{
+        width: 200px;
+    }
+
+    /* CONTACT 
+    ------------------------------------------------------------------------- */
+    .wpcf7-text{
+        width: 220px;
+    }
+
+    /* FOOTER
+    ------------------------------------------------------------------------- */
+    .container_12.copyright-container .grid_6.alpha,
+    .container_12.copyright-container .grid_6.omega{
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 10px;
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .footer-breadcrumbs{
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+        display: table;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    #content-wrapper{
+        width: 440px;
+    }
+
+    #header{
+        width: 420px;
+    }
+
+    #contact-info-container{
+        float: left;
+        width: 100%;
+    }
+
+    #contact-info-container .info{
+        float: none;
+        margin: 0 auto 5px;
+        display: table;
+    }
+
+    #contact-info-container .social-links{
+        float: none;
+        display: table;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    #logo{
+        float: none;
+        margin: 0 auto 30px;
+    }
+
+    #search-box{
+        display: none;
+    }
+
+    .top-shadow{
+        background-size: 100%;
+        float: left;
+        z-index: 200; 
+        width: 100%;
+    }
+
+    #nav-container #nav{
+        display: none;
+    }
+
+    #nav-container{
+        width: 100%;
+    }
+
+    #nav-container select{
+        display: block;
+        width: 380px;
+        margin-top: 12px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 12px;
+        height: 28px;
+        background: #f6f6f6;
+        border: 1px solid #ececec;
+        color: #666;
+        font: italic 12px Arial, sans-serif;    
+    }
+
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+
+    iframe{
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* GRIDS */
+    .container_12{
+        width: 420px !important;
+    }
+
+    .grid_1,
+    .grid_2,
+    .grid_3,
+    .grid_4,
+    .grid_5,
+    .grid_6,
+    .grid_7,
+    .grid_8,
+    .grid_9,
+    .grid_10,
+    .grid_11,
+    .grid_12{
+        width: 400px !important;
+    }
+
+    .container_12 [class*="grid_"] [class*="grid_"]{
+        margin-left: 0 !important;
+    }
+
+    .omega{
+        margin-left: 0;
+    }
+
+    .arrow-list li{
+        background-position: 0 2px !important;
+    }
+
+    /* ENTRY NOTE
+    ------------------------------------------------------------------------- */
+    .entry-note p{
+        padding: 0;
+    }
+
+    /* NOTE
+    ------------------------------------------------------------------------- */
+    .grid_12 .note-container .note-content .note{
+        width: 100%;
+    }
+
+    .grid_12 .note-container .note-content .note-btn{
+        position: relative;
+        top: 0;
+        margin: 20px 0 0;
+        float: left;
+        right: 0;
+    }
+
+    /* CLIENT CAROUSEL
+    --------------------------------------------------------------------------*/
+    #client-carousel li{
+        width: 131px !important;
+        min-height: 70px !important;
+    }
+
+    .client-carousel .caroufredsel_wrapper{
+        width: 400px !important;
+        min-height: 70px !important;
+    }
+
+    #client-carousel li img{
+        width: 120px;
+    }
+
+    /* TABS HORISONTAL
+    -------------------------------------------------------------------------- */
+    .tabs li{
+        width: 100%;
+        border-right: 1px solid #eee;
+        border-left: 1px solid #eee;
+
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    .tabs li.active{
+        border-right: 1px solid #eee;
+    }
+
+    .tabs.vertical{
+        margin-bottom: 20px;
+    }
+
+    /* TESTIMONIAL CAROUSEL
+    ------------------------------------------------------------------------- */
+    .grid_4.aside-right .carousel-testimonial .carousel-li > li, .grid_4.aside-left .carousel-testimonial .carousel-li > li,
+    .grid_4.aside-right .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_4.aside-left .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_3 .carousel-testimonial .caroufredsel_wrapper
+    .grid_3 .carousel-testimonial .carousel-li > li,
+    .grid_4 .carousel-testimonial .caroufredsel_wrapper,
+    .grid_4 .carousel-testimonial .carousel-li > li,
+    .grid_5 .carousel-testimonial .caroufredsel_wrapper,
+    .grid_5 .carousel-testimonial .carousel-li > li,
+    .grid_6 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_6 .carousel-testimonial .carousel-li > li,
+    .grid_7 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_7 .carousel-testimonial .carousel-li > li,
+    .grid_8 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_8 .carousel-testimonial .carousel-li > li,
+    .grid_9 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_9 .carousel-testimonial .carousel-li > li,
+    .grid_12 .carousel-testimonial .caroufredsel_wrapper,
+    .grid_12 .carousel-testimonial .carousel-li > li{width: 400px !important; margin-right: 20px;}
+
+    /* CAROUSEL ARTICLE FOOTER
+    ------------------------------------------------------------------------- */
+    .grid_3 .carousel-article .caroufredsel_wrapper,
+    .grid_3 .carousel-article .carousel-li > li,
+    .grid_4 .carousel-article .caroufredsel_wrapper,
+    .grid_4 .carousel-article .carousel-li > li,
+    .grid_4.aside-left .carousel-article .carousel-li > li, 
+    .grid_4.aside-right .carousel-article .carousel-li > li, 
+    .grid_5 .carousel-article .caroufredsel_wrapper,
+    .grid_5 .carousel-article .carousel-li > li, 
+    .grid_6 .carousel-article .caroufredsel_wrapper,
+    .grid_6 .carousel-article .carousel-li > li,
+    .grid_7 .carousel-article .caroufredsel_wrapper,
+    .grid_7 .carousel-article .carousel-li > li,
+    .grid_8 .carousel-article .caroufredsel_wrapper,
+    .grid_8 .carousel-article .carousel-li > li,
+    .grid_9 .carousel-article .caroufredsel_wrapper,
+    .grid_9 .carousel-article .carousel-li > li, 
+    .grid_12 .carousel-article .caroufredsel_wrapper,
+    .grid_12 .carousel-article .carousel-li > li{
+        width: 400px !important;
+    }
+
+    /* NIVO SLIDER
+    --------------------------------------------------------------------------*/
+    .nivoSlider.image-slider, 
+    .nivoSlider.image-slider img{
+        width: 100%;
+    }
+
+    .nivoSlider.image-slider .nivo-caption{
+        display: none !important;
+    }
+
+    /* HOME PAGE RECENT POSTS WIDGET 
+    ------------------------------------------------------------------------- */
+    .latest-blog-posts .post-info{
+        width: 100px;    
+    }
+
+    .latest-blog-posts .post-body{
+        width: 280px;
+    }
+
+    .latest-blog-posts .post-body .post-meta .title-date{
+        width: 220px;
+    }
+
+    .latest-blog-posts .post-info .comments{
+        position: relative;
+        width: 104px;
+        left: 0;
+        display: block;
+        border: 2px solid #ddd;
+
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        text-align: center;
+    }
+
+    /* SERVICES
+    ------------------------------------------------------------------------- */ 
+    .grid_4 .service-box-1 .content, 
+    .grid_3 .service-box-1 .content,
+    .grid_5 .service-box-1 .content,
+    .grid_6 .service-box-1 .content,
+    .grid_7 .service-box-1 .content,
+    .grid_8 .service-box-1 .content,
+    .grid_9 .service-box-1 .content,
+    .grid_12 .service-box-1 .content{width: 328px;}
+
+    /* PAGES WITH SIDEBAR 
+    ------------------------------------------------------------------------- */
+    .aside-right, 
+    .aside-left{
+        width: 400px !important;
+        padding: 0;
+    }
+    
+    /* PRICING TABLES 
+    ------------------------------------------------------------------------- */
+    .pricing-table-col.labels{
+        display: none;
+    }
+    
+    .pricing-table-col span.label{
+        display: block;
+        width: 100%;
+        float: left;
+        font-weight: 600;
+        color: #444;
+    }
+    
+    .pricing-excluded{
+        background-position: center 35px !important;
+        min-height: 60px !important;
+    }
+    
+    .pricing-check{
+        background-position: center 35px !important;
+        min-height: 60px !important;
+    }
+
+    /* PORTFOLIO
+    --------------------------------------------------------------------------*/
+    .quicksand-filter-container span{
+        text-align: center;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .quicksand-filter-container #quicksand-filter{
+        float: none;
+        display: table;
+        margin: 0 auto;
+    }
+
+    .portfolio img{
+        width: 100%;
+    }
+
+    .carousel-portfolio .caroufredsel_wrapper{
+        width: 419px !important;
+        min-height: 198px !important;
+    }
+
+    .carousel-portfolio .carousel-li > li{
+        width: 190px !important;
+        min-height: 198px !important;
+    }
+
+    .carousel-gallery .carousel-li > li{
+        width: 198px !important;
+        min-height: 161px !important;
+    }
+
+    .carousel-gallery .carousel-li > li img{
+        width: 198px !important;
+        min-height: 161px !important;
+    }
+
+    .carousel-gallery .caroufredsel_wrapper {
+        width: 400px !important;
+        min-height: 161px !important;
+    }
+
+    .grid_12.portfolio-style-1 .portfolio{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .grid_12.portfolio-style-1 .portfolio-info{
+        width: 100%;
+    }
+
+    .portfolio-pagination .pager{
+        width: 266px;
+    }
+
+    .grid_3.portfolio-style-1 .portfolio, 
+    .grid_4.portfolio-style-1 .portfolio, 
+    .grid_6.portfolio-style-1 .portfolio{
+        width: 100%;
+    }
+
+    .gallery .grid_4.portfolio-style-gallery{
+        width: 100% !important;
+    }
+
+    /* BLOG 
+   --------------------------------------------------------------------------*/
+    .post-body, .post-body-container{
+        width: 270px;
+    }
+
+    .post-body .nivoSlider.blog-slider, 
+    .post-body .nivoSlider.blog-slider img{
+        width: 270px;
+        height: auto;
+        min-height: 134px;
+    }
+
+    .nivoSlider.blog-slider, 
+    .nivoSlider.blog-slider img{
+        width: 100%;
+    }
+
+    .post-author .info{
+        width: 164px;
+    }
+
+    #respond .name-container input, #respond .email-container input{
+        width: 200px;
+    }
+
+    .pager{
+        width: 266px;
+    }
+
+    .share-post #shareme{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .post-comments .children{
+        margin-left: 0;
+        padding: 0 0 0 10px;
+    }
+
+    /* CONTACT 
+    ------------------------------------------------------------------------- */
+    .wpcf7-text{
+        width: 220px;
+    }
+
+    /* FOOTER
+    ------------------------------------------------------------------------- */
+    .container_12.copyright-container .grid_6.alpha,
+    .container_12.copyright-container .grid_6.omega{
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 10px;
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .footer-breadcrumbs{
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+        display: table;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px){
+    #content-wrapper{
+        width: 280px;
+    }
+
+    #header{
+        width: 240px;
+    }
+
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+
+    iframe{
+        max-width: 100%;
+        height: auto;
+    }
+
+    #search-box{
+        display: none;
+    }
+
+    .top-shadow{
+        background-size: 100%;
+        float: left;
+        z-index: 200; 
+        width: 100%;
+    }
+
+    #nav-container #nav{
+        display: none;
+    }
+
+    #nav-container{
+        width: 100%;
+    }
+
+    #nav-container select{
+        display: block;
+        width: 380px;
+        margin-top: 12px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 12px;
+        height: 28px;
+        background: #f6f6f6;
+        border: 1px solid #ececec;
+        color: #666;
+        font: italic 12px Arial, sans-serif;    
+    }
+
+    /* GRIDS */
+    .container_12{
+        width: 260px !important;
+    }
+
+    #contact-info-container{
+        float: left;
+        width: 100%;
+    }
+
+    #contact-info-container .info{
+        float: none;
+        margin: 0 auto 5px;
+        display: table;
+    }
+
+    #contact-info-container .social-links{
+        float: none;
+        display: table;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    #logo{
+        float: none;
+        margin: 0 auto 30px;
+    }
+
+    .grid_1,
+    .grid_2,
+    .grid_3,
+    .grid_4,
+    .grid_5,
+    .grid_6,
+    .grid_7,
+    .grid_8,
+    .grid_9,
+    .grid_10,
+    .grid_11,
+    .grid_12{
+        width: 240px !important;
+    }
+
+    .container_12 [class*="grid_"] [class*="grid_"]{
+        margin-left: 0 !important;
+    }
+
+    .omega{
+        margin-left: 0px;
+    }
+
+    .alpha.omega{
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    #logo{
+        float: none;
+        margin: 0 auto 30px;
+    }
+
+    .top-shadow{
+        background-size: 100%;
+        float: left;
+        z-index: 200; 
+        width: 100%;
+    }
+
+    #nav-container #nav{
+        display: none;
+    }
+
+    #nav-container{
+        width: 100%;
+    }
+
+    #nav-container select{
+        display: block;
+        width: 240px;
+        margin-top: 12px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 12px;
+        height: 28px;
+        background: #f6f6f6;
+        border: 1px solid #ececec;
+        color: #666;
+        font: italic 12px Arial, sans-serif;    
+    }
+
+    .arrow-list li{
+        background-position: 0 2px !important;
+    }
+
+    .breadcrumbs{
+        display: none;
+    }
+    /* ENTRY NOTE
+    ------------------------------------------------------------------------- */
+    .entry-note p{
+        padding: 0;
+    }
+
+    /* NOTE
+    ------------------------------------------------------------------------- */
+    .grid_12 .note-container .note-content .note{
+        width: 100%;
+    }
+
+    .grid_12 .note-container .note-content .note-btn{
+        position: relative;
+        top: 0;
+        margin: 20px 0 0;
+        float: left;
+        right: 0;
+    }
+
+    /* CLIENT CAROUSEL
+    --------------------------------------------------------------------------*/
+    .client-carousel .caroufredsel_wrapper{
+        width: 240px !important;
+        min-height: 70px !important;
+    }
+    #client-carousel li{
+        width: 118px !important;
+        min-height: 70px !important;
+    }
+
+    #client-carousel li img{
+        width: 110px;
+    }
+
+    /* TABS HORISONTAL
+    -------------------------------------------------------------------------- */
+    .tabs li{
+        width: 100%;
+        border-right: 1px solid #eee;
+        border-left: 1px solid #eee;
+
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    .tabs li.active{
+        border-right: 1px solid #eee;
+    }
+
+    .tabs.vertical{
+        margin-bottom: 20px;
+    }
+
+    /* TESTIMONIAL CAROUSEL
+    ------------------------------------------------------------------------- */
+    .grid_4.aside-right .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_4.aside-left .carousel-testimonial .caroufredsel_wrapper,
+    .grid_4.aside-right .carousel-testimonial .carousel-li > li, .grid_4.aside-left .carousel-testimonial .carousel-li > li,
+    .grid_3 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_3 .carousel-testimonial .carousel-li > li,
+    .grid_4 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_4 .carousel-testimonial .carousel-li > li,
+    .grid_5 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_5 .carousel-testimonial .carousel-li > li,
+    .grid_6 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_6 .carousel-testimonial .carousel-li > li,
+    .grid_7 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_7 .carousel-testimonial .carousel-li > li,
+    .grid_8 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_8 .carousel-testimonial .carousel-li > li,
+    .grid_9 .carousel-testimonial .caroufredsel_wrapper, 
+    .grid_9 .carousel-testimonial .carousel-li > li,
+    .grid_12 .carousel-testimonial .caroufredsel_wrapper,
+    .grid_12 .carousel-testimonial .carousel-li > li{width: 240px; margin-right: 20px;}
+
+    /* CAROUSEL ARTICLE FOOTER
+    ------------------------------------------------------------------------- */
+    .grid_3 .carousel-article .caroufredsel_wrapper,
+    .grid_3 .carousel-article .carousel-li > li, 
+    .grid_4 .carousel-article .caroufredsel_wrapper
+    .grid_4 .carousel-article .carousel-li > li, 
+    .grid_4.aside-left .carousel-article .carousel-li > li, 
+    .grid_4.aside-right .carousel-article .carousel-li > li,
+    .grid_5 .carousel-article .caroufredsel_wrapper,
+    .grid_5 .carousel-article .carousel-li > li, 
+    .grid_6 .carousel-article .caroufredsel_wrapper,
+    .grid_6 .carousel-article .carousel-li > li, 
+    .grid_7 .carousel-article .caroufredsel_wrapper,
+    .grid_7 .carousel-article .carousel-li > li, 
+    .grid_8 .carousel-article .caroufredsel_wrapper,
+    .grid_8 .carousel-article .carousel-li > li,
+    .grid_9 .carousel-article .caroufredsel_wrapper,
+    .grid_9 .carousel-article .carousel-li > li, 
+    .grid_12 .carousel-article .caroufredsel_wrapper,
+    .grid_12 .carousel-article .carousel-li > li{
+        width: 240px;
+    }
+
+    /* CAROUSEL ALTERNATIVE
+    -------------------------------------------------------------------------- */
+    .testimonials-alternative-nav li{
+        width: 45px;
+    }
+
+    /* NIVO SLIDER
+    --------------------------------------------------------------------------*/
+    .nivoSlider.image-slider, 
+    .nivoSlider.image-slider img{
+        width: 100%;
+    }
+
+    .nivoSlider.image-slider .nivo-caption{
+        display: none !important;
+    }
+
+    /* HOME PAGE RECENT POSTS WIDGET 
+    ------------------------------------------------------------------------- */
+    .latest-blog-posts .post-info, 
+    .latest-blog-posts .post-info img{
+        width: 100%;  
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .latest-blog-posts .post-info .comments{
+        bottom: 12px;
+    }
+    .latest-blog-posts .post-body{
+        width: 100%;
+    }
+
+    .latest-blog-posts .post-body .post-meta .title-date{
+        width: 180px;
+    }
+
+
+    /* SERVICES
+    ------------------------------------------------------------------------- */ 
+    .grid_4 .service-box-1 .content, 
+    .grid_3 .service-box-1 .content,
+    .grid_5 .service-box-1 .content,
+    .grid_6 .service-box-1 .content,
+    .grid_7 .service-box-1 .content,
+    .grid_8 .service-box-1 .content,
+    .grid_9 .service-box-1 .content,
+    .grid_12 .service-box-1 .content{width: 168px;}
+
+    /* PAGES WITH SIDEBAR 
+    ------------------------------------------------------------------------- */
+    .aside-right, 
+    .aside-left{
+        width: 240px !important;
+        padding: 0;
+    }
+
+    /* PRICING TABLES 
+    ------------------------------------------------------------------------- */
+    .pricing-table-col.labels{
+        display: none;
+    }
+    
+    .pricing-table-col span.label{
+        display: block;
+        width: 100%;
+        float: left;
+        font-weight: 600;
+        color: #444;
+    }
+    
+    .pricing-excluded{
+        background-position: center 35px !important;
+        min-height: 60px !important;
+    }
+    
+    .pricing-check{
+        background-position: center 35px !important;
+        min-height: 60px !important;
+    }
+    
+    /* PORTFOLIO
+    --------------------------------------------------------------------------*/
+    .quicksand-filter-container span{
+        text-align: center;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .quicksand-filter-container #quicksand-filter{
+        float: none;
+        display: table;
+        margin: 0 auto;
+    }
+
+    .portfolio img{
+        width: 100%;
+    }
+
+    .carousel-portfolio .caroufredsel_wrapper{
+        width: 240px !important;
+        min-height: 237px !important;
+    }
+
+    .carousel-portfolio .carousel-li > li{
+        width: 240px !important;
+        min-height: 237px !important;
+    }
+
+    .carousel-gallery .carousel-li > li, 
+    .carousel-gallery .carousel-li > li img{
+        width: 240px !important;
+        min-height: 186px !important;
+    }
+
+    .carousel-gallery .caroufredsel_wrapper {
+        width: 240px !important;
+        min-height: 186px !important;
+    }
+
+    .grid_12.portfolio-style-1 .portfolio{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .grid_12.portfolio-style-1 .portfolio-info{
+        width: 100%;
+    }
+
+    .portfolio-pagination .pager{
+        width: 106px;
+    }
+
+    .grid_3.portfolio-style-1 .portfolio, 
+    .grid_4.portfolio-style-1 .portfolio, 
+    .grid_6.portfolio-style-1 .portfolio{
+        width: 100%;
+    }
+
+    .gallery .grid_4.portfolio-style-gallery{
+        width: 100% !important;
+    }
+
+    /* BLOG 
+   --------------------------------------------------------------------------*/
+    .post-body, .post-body-container{
+        width: 270px;
+    }
+
+    .post-body .nivoSlider.blog-slider, 
+    .post-body .nivoSlider.blog-slider img{
+        width: 270px;
+        height: auto;
+        min-height: 134px;
+    }
+
+    .nivoSlider.blog-slider, 
+    .nivoSlider.blog-slider img{
+        width: 100%;
+    }
+
+    .post-author .info{
+        width: 164px;
+    }
+
+    #respond .name-container input, #respond .email-container input{
+        width: 200px;
+    }
+
+    .pager{
+        width: 106px;
+    }
+
+    .share-post #shareme{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .post-comments .children{
+        margin-left: 0;
+        padding: 0 0 0 10px;
+    }
+
+    .blog-meta{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .blog-meta .category{
+        float: left;
+        margin-right: 20px;
+    }
+
+    .blog-meta > ul{
+        float: left;
+        width: 180px;
+        text-align: left;
+    }
+
+    .blog-meta li{
+        text-align: left;
+    }
+
+    /* CONTACT 
+    ------------------------------------------------------------------------- */
+    .wpcf7-text{
+        width: 220px;
+    }
+
+    /* FOOTER
+    ------------------------------------------------------------------------- */
+    .container_12.copyright-container .grid_6.alpha,
+    .container_12.copyright-container .grid_6.omega{
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 10px;
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .footer-breadcrumbs{
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+        display: table;
+    }
+}

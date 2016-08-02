@@ -1,0 +1,184 @@
+.text-color, 
+.social-links li a:hover, 
+#nav li ul li.current-menu-item a, 
+#nav li ul li:hover > a, 
+a:hover, 
+.post-body a:hover h3, 
+.blog-post.sticky .post-body a h3, 
+.footer-breadcrumbs li a.active, 
+.footer-breadcrumbs li a:hover, 
+.tabs li.active a, 
+.service-box-1 .content .title a:hover h1, 
+.service-box-1 .content .title a:hover h2, 
+.service-box-1 .content .title a:hover h3, 
+.service-box-1 .content .title a:hover h4, 
+.service-box-1 .content .title a:hover h5, 
+.service-box-1 .content .title a:hover h6, 
+.latest-blog-posts .title-date a:hover h6{
+    color: #acc86e !important;
+}
+
+.read-more-btn:hover a, 
+.aside_widgets .newsletter .submit:hover, 
+.comment-reply-link{
+    background-color: #b5d274;
+}
+
+.pricing-table-col.selected .head .price{
+    color: #f2fbdc;
+}
+
+#nav > ul > li.current-menu-item, 
+#nav > ul > li:hover, 
+.pi_recent_posts .meta:hover, 
+.blog-meta .category:hover, 
+.read-more-btn:hover .plus, 
+.widget_tag_cloud a:hover, 
+.comment-reply-link:hover, 
+.quicksand-filter-container #quicksand-filter li.active, 
+.quicksand-filter-container #quicksand-filter li:hover, 
+.portfolio-hover li:hover, 
+.nivo-caption .subtitle, 
+.team-info .title-position .position, 
+span.dropcap-color, 
+.footer-widget-container .newsletter .submit:hover, 
+.latest-blog-posts .post-info .comments:hover, 
+.latest-blog-posts .post-body .post-meta .category:hover, 
+.pricing-table-col.selected .head .price{
+    background-color: #acc86e !important;
+}
+
+.aside_widgets .newsletter .submit:hover, 
+.footer-widget-container .newsletter .submit:hover{
+    border: 1px solid #acc86e;
+}
+
+.portfolio:hover figcaption, 
+.testimonials-alternative-content{
+    border-top: 3px solid #acc86e;
+}
+
+blockquote.style2{
+    border-left: 5px solid #acc86e;
+}
+
+#nav > ul > li:hover, 
+#nav > ul > li.current-menu-item{
+    border-bottom: 2px solid #acc86e;
+    height: 66px;
+    border-right: 1px solid #acc86e;
+}
+
+.testimonials-alternative-nav li a:after{
+    border-bottom: 8px solid #acc86e;
+}
+
+.wpcf7-submit, 
+.pager li.active, 
+.pager li:hover, 
+#respond #comment-reply, 
+.expand, 
+.btn-color, 
+.btn-medium.green, 
+.btn-big.green{
+    background: #c7e487; /* Old browsers */
+    background: -moz-linear-gradient(top,  #c7e487 0%, #b9d57c 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c7e487), color-stop(100%,#b9d57c)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #c7e487 0%,#b9d57c 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #c7e487 0%,#b9d57c 100%); /* Opera 11.10+ */
+    background: linear-gradient(to bottom,  #c7e487 0%,#b9d57c 100%); /* W3C */
+
+    border: 1px solid #a6c06c;
+}
+
+.wpcf7-submit:hover, 
+#respond #comment-reply:hover, 
+.btn-color:hover, 
+.btn-medium.green:hover, 
+.btn-big.green:hover{
+    background: #b9d57c; /* Old browsers */
+    background: -moz-linear-gradient(top,  #b9d57c 0%, #c7e487 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b9d57c), color-stop(100%,#c7e487)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #b9d57c 0%,#c7e487 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #b9d57c 0%,#c7e487 100%); /* Opera 11.10+ */
+    background: linear-gradient(to bottom,  #b9d57c 0%,#c7e487 100%); /* W3C */
+}
+
+#search-box .search-submit:hover{
+    background: url('../img/green/search-hover.png') no-repeat center 3px;
+}
+
+.nivo-nextNav{
+    background-image:  url('../img/rsar.png'); 
+}
+
+.nivo-prevNav{
+    background-image: url('../img/rsal.png');
+}
+
+.nivo-nextNav:hover{
+    background-image: url('../img/green/rsar-active.png');
+}
+
+.nivo-prevNav:hover{
+    background-image: url('../img/green/rsal-active.png');
+}
+
+.accordion.faq .title.active a, 
+.accordion.faq .title:hover a{
+    background: url('../img/green/faq-opened.png') no-repeat 0 center;
+}
+
+.accordion .title.active a,
+.accordion .title:hover a{
+    background: url('../img/green/acc-opened.png') no-repeat 0 center;
+}
+
+.arrow-list li{
+    background: url('../img/green/arrow.png') no-repeat 0 center;
+}
+
+.carousel-nav li a.prev:hover, 
+.carousel-nav li a.c_prev:hover{
+    background-image: url('../img/green/cl-active.png');
+}
+
+.carousel-nav li a.next:hover, 
+.carousel-nav li a.c_next:hover{
+    background-image: url('../img/green/cr-active.png');
+}
+
+.service-box-1 .icon{
+    background: url('../img/green/service-bkg.png') no-repeat 0 0;
+}
+
+.carousel-portfolio .carousel-pagination a.selected {
+    background: url('../img/green/sb-active.png') no-repeat;
+}
+
+.carousel-pagination a.selected {
+    background: url('../img/green/db-active.png') no-repeat;
+}
+
+.widget .contact-info li.address{
+    background: url('../img/green/contact-address.png') no-repeat 0 0;
+}
+
+.widget .contact-info li.phone{
+    background: url('../img/green/contact-phone.png') no-repeat 0 0;
+}
+
+.widget .contact-info li.mail{
+    background: url('../img/green/contact-mail.png') no-repeat 0 0;
+}
+
+.btn-color span, .btn-color:hover span, 
+#respond #comment-reply, 
+.wpcf7-submit{
+    color: #697a44;
+}
+
+.pricing-excluded{
+    background: url(../img/green/excluded.png) no-repeat center center;
+    min-height: 38px;
+}

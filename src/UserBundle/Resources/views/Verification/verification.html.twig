@@ -1,0 +1,121 @@
+{% extends "::office.html.twig"  %}
+
+{#{% form_theme form '::twig_theme.html.twig' %}#}
+
+{% block style %}
+    <link href="{{ asset('css/uploadfile.css') }}" rel="stylesheet" type="text/css" />
+{% endblock style %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.verification.verification'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    {% if app.user.verificationStatus == 1 %}
+        <div role="alert" class="alert alert-warning alert-dismissible fade in">
+            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+            </button>
+            <strong>{{ 'office.verification.your_data_are_pending'|trans }}</strong>
+        </div>
+    {% endif %}
+    {% if app.user.verificationStatus == 2 %}
+        <div role="alert" class="alert alert-success alert-dismissible fade in">
+            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+            </button>
+            <strong>{{ 'office.verification.your_data_are_success'|trans }}</strong>
+        </div>
+    {% endif %}
+    {% if app.user.verificationStatus == 3 %}
+        <div role="alert" class="alert alert-danger alert-dismissible fade in">
+            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+            </button>
+            <strong>{{ 'office.verification.your_data_are_cancel'|trans }}</strong>
+        </div>
+    {% endif %}
+
+    {% if app.user.verificationStatus != 2 %}
+        <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.verification.verification'|trans }} {% if app.user.verificationStatus == 0 %}({{ 'office.verification.verefication_text'|trans }}).{% endif %}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    <form method="post">
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-1 ">
+                            <div id="passportPhotoName" style="">Upload</div>
+                                <div class="passportPhotoName" style="width: 100px; height: 100px; margin-left: 80%; position: absolute; top: 0%">
+                                    {% if app.user.verification %}
+                                        {% if app.user.verification.passportPhotoName %}
+                                            <img src="{{ asset('uploads/verification/' ~ app.user.verification.passportPhotoName) }}" width="98" height="98">
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                        </div>
+                    </div>
+                        <div class="clearfix"></div>
+                    <div class="ln_solid"></div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-1">
+                            <button class="btn btn-primary" type="submit">{{ 'support.sent'|trans }}</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/jquery.uploadfile.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#passportPhotoName").uploadFile({
+                url: "{{ path('user_upload_file') }}",
+                multiple: false,
+                maxFileCount: 1,
+                fileName: "passportPhotoName",
+                showDelete: true,
+                uploadStr: "{{ 'office.verification.browse'|trans }}",
+                deletelStr: "{{ 'office.verification.delete'|trans }}",
+                dragDropStr: "<span><b>{{ 'office.verification.drag_drop'|trans }}</b></span>",
+                abortStr: "{{ 'office.verification.abort'|trans }}",
+                allowedTypes: "jpeg,jpg,png,gif,pdf",
+                onSuccess: function (files, data, xhr, pd) {
+                    data = jQuery.parseJSON(data);
+                    $(".passportPhotoName").html('<img src="/uploads/verification/' + data[0] + '" width="98" height="98">');
+                    $(".passportPhotoName").css("display", "block");
+                },
+                deleteCallback: function (data, pd) {
+                    $.post("{{ path('user_delete_file') }}", {
+                                op: "passportPhotoName",
+                                name: data
+                            },
+                            function (resp, textStatus, jqXHR) {
+                                $(".passportPhotoName").css("display", "none");
+                            });
+                    pd.statusbar.hide(); //You choice to hide/not.
+                }
+            });
+        });
+    </script>
+{% endblock js %}

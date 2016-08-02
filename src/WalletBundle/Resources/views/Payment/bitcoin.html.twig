@@ -1,0 +1,45 @@
+{% extends "::office.html.twig"  %}
+
+{% block body %}
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>{{ 'office.deposit.deposit'|trans }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {% include '::alert_success.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {% include '::alert_error.html.twig' with {'message' : flashMessage} %}
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ 'office.deposit.deposit'|trans }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    {#<div style="text-align: center">#}
+                        {#<img src="{{ asset('img/bitcoin.jpeg') }}" style="box-shadow: 0 0 10px rgba(0,0,0,0.5);">#}
+                    {#</div>#}
+                    {#<div style="text-align: center; margin-top: 15px">Send {{ price_in_btc }}BTC({{ price_in_usd }}EUR) to address:</div>#}
+                    {#<div style="text-align: center"><b>{{ input_address }}</b></div>#}
+                    {#<div style="text-align: center">#}
+                        {#<img style="margin:5px" id="qrsend" src="https://blockchain.info/qr?data=bitcoin:{{ input_address }}%3Famount=0.001%26label=Pay-Demo&size=125" alt=""/>#}
+                    {#</div>#}
+                    {#<div style="text-align: center">#}
+                        {#Fund your account using the above bitcoin address or scan the QR code using your bitcoin mobile wallet of your choice.#}
+                    {#</div>#}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

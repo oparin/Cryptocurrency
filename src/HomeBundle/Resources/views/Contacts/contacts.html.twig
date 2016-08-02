@@ -1,0 +1,127 @@
+{% extends ':home:base.html.twig' %}
+
+{% block body %}
+    {#{% for flash_message in app.session.flashbag.get('success') %}#}
+        {#{% include ':notification:success_note.html.twig' with {'message' : flash_message} %}#}
+    {#{% endfor %}#}
+    {#{% for flash_message in app.session.flashbag.get('error') %}#}
+        {#{% include ':notification:error_note.html.twig' with {'message' : flash_message} %}#}
+    {#{% endfor %}#}
+
+    <!-- .page-title-container start -->
+    <section class="page-title-container">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+
+            <!-- .page-title start -->
+            <div class="page-title grid_12">
+                <div class="title">
+                    <h1>{{ 'home.contacts.contact_us'|trans }}</h1>
+                </div>
+
+                <div class="subtitle">
+                    <h3>{{ 'home.contacts.have_a_question_for_us'|trans }}</h3>
+                </div>
+            </div><!-- .page-title end -->
+        </div><!-- .container_12 end -->
+    </section><!-- .page-title-container end -->
+
+    <!-- #content-wrapper start -->
+    <section id="content-wrapper">
+
+        <!-- .container_12 start -->
+        <div class="container_12">
+
+            <!-- .grid_6 start -->
+            <article class="grid_6">
+
+                <!-- .map-info-container start -->
+                <section class=" map-info-container">
+                    <div class="map_canvas"></div>
+
+                    {{ content|raw }}
+
+                </section><!-- .map-info-container end -->
+            </article><!-- .grid_6 end -->
+
+            <!-- .grid_6 start -->
+            <div class="grid_6">
+                {% for flash_message in app.session.flashbag.get('success') %}
+                    <section class="success-box">
+                        <p>{{ flash_message }}</p>
+                    </section>
+                {% endfor %}
+                {% for flash_message in app.session.flashbag.get('error') %}
+                    <section class="error-box">
+                        <p>{{ flash_message }}</p>
+                    </section>
+                {% endfor %}
+                <section class="section-title left">
+                    <h3>{{ 'home.contacts.have_a_question_for_us'|trans }}</h3>
+                </section>
+
+                <p>
+                    {{ 'home.contacts.question_text'|trans }}
+                </p>
+
+                <br />
+
+                <!-- wpcf7 start -->
+                {{ form_start(form, {'attr': {'class': 'wpcf7'}}) }}
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'home.contacts.name'|trans }}:</label>
+                        {{ form_widget(form.name, {'attr': {'class': 'wpcf7-text'}}) }}
+                    </fieldset>
+
+                    <fieldset>
+                        <label><span class="text-color">*</span> Email:</label>
+                        {{ form_widget(form.email, {'attr': {'class': 'wpcf7-text'}}) }}
+                    </fieldset>
+
+                    <fieldset>
+                        <label><span class="text-color">*</span> {{ 'home.contacts.message'|trans }}:</label>
+                        {{ form_widget(form.message, {'attr': {'class': 'wpcf7-textarea'}}) }}
+                    </fieldset>
+
+                    <fieldset>
+                        <script type="text/javascript">
+                            var onloadCallback = function() {
+                                grecaptcha.render('captcha', {
+                                    'sitekey' : '{{ site_key }}',
+                                    'hl' : 'en',
+                                    'theme' : 'light'
+                                });
+                            };
+                        </script>
+                        <div id="captcha"></div>
+                        <script src="https://www.google.com/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit"
+                                async defer>
+                        </script>
+                    </fieldset>
+
+                    {{ form_rest(form) }}
+                    <input type="submit" class="wpcf7-submit" value="{{ 'sent'|trans }}" />
+                {{ form_end(form) }} <!-- wpcf7 end -->
+            </div><!-- .grid_6 end -->
+
+        </div><!-- .container_12 end -->
+    </section><!-- #content-wrapper end -->
+{% endblock body %}
+
+{% block js %}
+    <script  src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    <script  src="{{ asset('lib/metropolis/js/jquery.ui.map.full.min.js') }}"></script>
+    <script>
+        /* GOOGLE MAP */
+        $(function() {
+            //google maps
+
+            var yourStartLatLng = new google.maps.LatLng(48.880833, 2.42333);
+            $('.map_canvas').gmap({'center': yourStartLatLng, 'zoom': 15, 'disableDefaultUI': true, 'callback': function() {
+                var self = this;
+                self.addMarker({'position': this.get('map').getCenter()});
+            }});
+        });
+    </script>
+{% endblock js %}
